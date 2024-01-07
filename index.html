@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema caixa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="number" id="qtd" placeholder="QUANTIDADE">
+    <div id="ao-leite" name="ao-leite" onclick=" picoleAoLeite()" class="btn-escolha">Ao Leite</div>
+    <div id="fruta" name="fruta" onclick=" picoleAoLeiteFruta()" class="btn-escolha">Fruta</div>
+    <div id="trufa" name="trufa" onclick=" picoleTrufaGelada()" class="btn-escolha">Trufa Gelada</div>
+
+    <div id="preco">
+        <span>R$</span>
+    </div>
+
+    <div name="mostrar" id="mostrar" cols="30" rows="10"> 
+    </div>
+    <button id="Deletar" onclick="limparCampoBotao()">Deletar</button>
+    <button id="finalizar" onclick="calculoTotal()">Finalizar</button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
