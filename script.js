@@ -1,7 +1,10 @@
 let quantidade = document.querySelector('#qtd');
 let mostrarHTML = document.querySelector('#mostrar');
 let preco = document.querySelector('#preco');
+const finalizadores = document.querySelector('.finalizador');
 let botoesEscolha = document.querySelectorAll('.btn-escolha');
+const btnsPagamentos = document.querySelectorAll('.finalizadores li');
+
 
 let lista = [];
 let precoAtualizado = []
@@ -70,7 +73,7 @@ function picoleTrufaGelada(){
 function mostrarLista(){
     limparCampo()
     limparCampoMostrar();
-    calculoMostrar()
+    calculoAtualizado()
 
     lista.forEach((item)=>{        
         let mult = item.qtd * item.valor
@@ -81,15 +84,20 @@ function mostrarLista(){
     
 }
 
-function calculoTotal(){
+function ativarModal(){
+    finalizadores.classList.toggle('ativo');
+    }
+
+function finalizar(){
     const somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
         return acumulador + elemento;
     });
     resultado.push(somaSorvetes)
     preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+    ativarModal();
 }
 
-function calculoMostrar(){
+function calculoAtualizado(){
     const somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
         return acumulador + elemento;
     });
@@ -111,7 +119,8 @@ function limparCampoBotao(){
     resultado = [];
     preco.innerHTML = `R$`
 }
-
- console.log(lista) 
  
-
+function focado(event){
+    
+    
+}
