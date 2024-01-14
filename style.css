@@ -93,11 +93,21 @@ body{
     display: none;
 }
 
-.ativo{
-    display: flex;
+.finalizador input{
+    text-align: center;
 }
-.btn-confirmar{
+
+.ativo{
+    display: grid;
+}
+#btn-confirmar{
     
+}
+
+.botoes-fechamento-venda{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
 @media(max-width:900px) {

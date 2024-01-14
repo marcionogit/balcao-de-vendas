@@ -4,6 +4,7 @@ let preco = document.querySelector('#preco');
 const finalizadores = document.querySelector('.finalizador');
 let botoesEscolha = document.querySelectorAll('.btn-escolha');
 const btnsPagamentos = document.querySelectorAll('.finalizadores li');
+const btnCancelar = document.querySelector('#btn-cancelar');
 
 
 let lista = [];
@@ -85,7 +86,20 @@ function mostrarLista(){
 }
 
 function ativarModal(){
-    finalizadores.classList.toggle('ativo');
+    finalizadores.classList.add('ativo');
+}
+function dinheiroFocado(){
+    finalizadorDinheiro.value = parseFloat(resultado).toFixed(2);
+}
+function debitoFocado(){
+    finalizadorDebito.value = parseFloat(resultado).toFixed(2);
+}
+function creditoFocado(){
+    finalizadorCredito.value = parseFloat(resultado).toFixed(2)
+};
+
+function desativarModal(){
+    finalizadores.classList.remove('ativo');
     }
 
 function finalizar(){
@@ -120,7 +134,8 @@ function limparCampoBotao(){
     preco.innerHTML = `R$`
 }
  
-function focado(event){
-    
-    
-}
+
+const finalizadorDinheiro = document.querySelector('#dinheiro');
+const finalizadorDebito = document.querySelector('#debito');
+const finalizadorCredito = document.querySelector('#credito');
+

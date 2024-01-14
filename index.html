@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="number" id="qtd" placeholder="QUANTIDADE">
+    <input type="number" id="qtd" placeholder="QUANTIDADE" autofocus>
     <div id="ao-leite" name="ao-leite" onclick=" picoleAoLeite()" class="btn-escolha">Ao Leite</div>
     <div id="fruta" name="fruta" onclick=" picoleAoLeiteFruta()" class="btn-escolha">Fruta</div>
     <div id="trufa" name="trufa" onclick=" picoleTrufaGelada()" class="btn-escolha">Trufa Gelada</div>
@@ -25,20 +25,25 @@
         <ul class="finalizadores">
             <li class="input-finalizador">
                 <label for="dinheiro">DINHEIRO</label>
-                <input type="number" id="dinheiro" name="dinheiro" onfocus="(focado(event))">
+                <input type="number" id="dinheiro" name="dinheiro" placeholder="0,00" onfocus="dinheiroFocado(event)">
             </li>
             <li class="input-finalizador" >
                 <label for="debito">DÉBITO</label>
-                <input type="number" id="debito" name="debito" onfocus="(focado(event))">
+                <input type="number" id="debito" name="debito" placeholder="0,00" onfocus="debitoFocado(event)">
             </li>
             <li class="input-finalizador" >
                 <label for="credito">CRÉDITO</label>
-                <input type="number" id="credito" name="credito" onfocus="(focado(event))">
+                <input type="number" id="credito" name="credito" placeholder="0,00" onfocus="creditoFocado(event)">
             </li>
         </ul>
-        <button class="btn-confirmar">
-            confirmar
-        </button>
+        <div class="botoes-fechamento-venda">
+            <button id="btn-confirmar">
+                confirmar
+            </button>
+            <button id="btn-cancelar" onclick="desativarModal()">
+                cancelar
+            </button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
