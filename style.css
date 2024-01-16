@@ -64,6 +64,19 @@ body{
     font-size: 2rem;
 }
 
+#mostrarTroco{
+    background-color: #fff;
+    display: block;
+    height: 40px;
+    text-align: center;
+    padding: 0px 80px;
+    margin-top: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
 .finalizadores{
     display: flex;
     align-items: center;
