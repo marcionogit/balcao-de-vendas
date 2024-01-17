@@ -101,11 +101,43 @@ function dinheiroFocado(){
     return acumulador + elemento;
     });
     finalizadorDinheiro.value = parseFloat(somaSorvetes).toFixed(2);
-    finalizadorDinheiro.select()
-    btnConfirmar.addEventListener('click', ()=>{
-        const troco = finalizadorDinheiro.value - somaSorvetes;
-        console.log(`Seu troco é ${troco}`)
-        mostrarTroco.innerHTML = `TROCO: R$ ${troco.toFixed(2)}`;
+    finalizadorDinheiro.select();
+
+    finalizadorDinheiro.addEventListener('focusout', ()=>{
+        if(finalizadorDinheiro.value < somaSorvetes){
+            finalizadorDebito.addEventListener('focus', ()=>{
+                let troco = finalizadorDinheiro.value - somaSorvetes; 
+                finalizadorCredito.value = parseFloat(0.00).toFixed(2);
+                troco = troco - (troco * 2)
+                finalizadorDebito.value = parseFloat(troco).toFixed(2);
+                finalizadorDebito.select();                
+            })
+            
+            finalizadorCredito.addEventListener('focus', ()=>{
+                let troco = finalizadorDinheiro.value - somaSorvetes; 
+                finalizadorDebito.value = parseFloat(0.00).toFixed(2);
+                troco = troco - (troco * 2)
+                finalizadorCredito.value = parseFloat(troco).toFixed(2);
+                finalizadorCredito.select();
+            })
+            btnConfirmar.addEventListener('click', ()=>{
+                mostrarTroco.innerHTML = `TROCO: R$ ${(0.00).toFixed(2)}`;
+            })
+        } else{
+            let troco = finalizadorDinheiro.value - somaSorvetes; 
+            console.log(`Seu troco é ${troco}`)
+            finalizadorDebito.addEventListener('focus', ()=>{
+                finalizadorDebito.value = parseFloat(0.00).toFixed(2);
+                finalizadorDebito.select();
+            })
+            finalizadorCredito.addEventListener('focus', ()=>{
+                finalizadorCredito.value = parseFloat(0.00).toFixed(2);
+                finalizadorCredito.select();
+            })
+            btnConfirmar.addEventListener('click', ()=>{
+                mostrarTroco.innerHTML = `TROCO: R$ ${troco.toFixed(2)}`;
+            })
+        }
     })
 }
 
@@ -133,12 +165,16 @@ function desativarModal(){
     }
 
 function finalizar(){
-    const somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-        return acumulador + elemento;
-    });
-    resultado.push(somaSorvetes)
-    preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
-    ativarModal();
+    if(precoAtualizado.length != ''){
+        const somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+            return acumulador + elemento;
+        });
+        resultado.push(somaSorvetes)
+        preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+        ativarModal();
+    } else{
+        console.log('Nenhum item selecionado')
+    }
 }
 
 function calculoAtualizado(){
@@ -164,6 +200,3 @@ function limparCampoBotao(){
     preco.innerHTML = `R$`
 }
  
-
-
-
