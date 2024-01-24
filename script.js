@@ -84,84 +84,125 @@ function mostrarLista(){
     })
     
 }
-
-function ativarModal(){
-    finalizadores.classList.add('ativo');
-}
-
-
 const finalizadorDinheiro = document.querySelector('#dinheiro');
 const finalizadorDebito = document.querySelector('#debito');
 const finalizadorCredito = document.querySelector('#credito');
 const btnConfirmar = document.querySelector('#btn-confirmar');
 const mostrarTroco = document.querySelector('#mostrarTroco');
 
-function dinheiroFocado(){    
-    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-    return acumulador + elemento;
-    });
-    finalizadorDinheiro.value = parseFloat(somaSorvetes).toFixed(2);
-    finalizadorDinheiro.select();
+function ativarModal(){
+    finalizadores.classList.add('ativo');
 
-    finalizadorDinheiro.addEventListener('focusout', ()=>{
-        if(finalizadorDinheiro.value < somaSorvetes){
-            finalizadorDebito.addEventListener('focus', ()=>{
-                let troco = finalizadorDinheiro.value - somaSorvetes; 
-                finalizadorCredito.value = parseFloat(0.00).toFixed(2);
-                troco = troco - (troco * 2)
-                finalizadorDebito.value = parseFloat(troco).toFixed(2);
-                finalizadorDebito.select();                
-            })
-            
-            finalizadorCredito.addEventListener('focus', ()=>{
-                let troco = finalizadorDinheiro.value - somaSorvetes; 
-                finalizadorDebito.value = parseFloat(0.00).toFixed(2);
-                troco = troco - (troco * 2)
-                finalizadorCredito.value = parseFloat(troco).toFixed(2);
-                finalizadorCredito.select();
-            })
-            btnConfirmar.addEventListener('click', ()=>{
-                mostrarTroco.innerHTML = `TROCO: R$ ${(0.00).toFixed(2)}`;
-            })
+    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+
+    
+    
+    finalizadorDinheiro.addEventListener('focus', ()=>{
+        let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
+
+        if(valorAPagar === 0){
+            finalizadorDinheiro.value = parseFloat(+finalizadorDinheiro.value).toFixed(2);
+            finalizadorDinheiro.select();    
         } else{
-            let troco = finalizadorDinheiro.value - somaSorvetes; 
-            console.log(`Seu troco é ${troco}`)
-            finalizadorDebito.addEventListener('focus', ()=>{
-                finalizadorDebito.value = parseFloat(0.00).toFixed(2);
-                finalizadorDebito.select();
-            })
-            finalizadorCredito.addEventListener('focus', ()=>{
-                finalizadorCredito.value = parseFloat(0.00).toFixed(2);
-                finalizadorCredito.select();
-            })
-            btnConfirmar.addEventListener('click', ()=>{
+            finalizadorDinheiro.value = parseFloat(valorAPagar).toFixed(2);
+            finalizadorDinheiro.select();
+            finalizadorDinheiro.addEventListener('focusout', ()=>{
+            
+            if(+finalizadorDinheiro.value === somaSorvetes){
+                finalizadorDinheiro.value = parseFloat(0.00).toFixed(2);
+                
+            } else if(+finalizadorDinheiro.value > somaSorvetes){
+                let troco = +finalizadorDinheiro.value - somaSorvetes;
+                finalizadorDinheiro.value = parseFloat(0.00).toFixed(2);
                 mostrarTroco.innerHTML = `TROCO: R$ ${troco.toFixed(2)}`;
-            })
+
+            } else if(+finalizadorDinheiro.value < somaSorvetes){
+                finalizadorDinheiro.value = +finalizadorDinheiro.value;
+            }
+            
+        })
         }
     })
+   
+    
+    finalizadorDebito.addEventListener('focus', ()=>{
+        let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
+        if(valorAPagar === 0){
+            finalizadorDebito.value = parseFloat(finalizadorDebito.value).toFixed(2);
+            finalizadorDebito.select();    
+        } else{
+            finalizadorDebito.value = parseFloat(valorAPagar).toFixed(2);
+            finalizadorDebito.select();
+        }
+        
+        finalizadorDebito.addEventListener('focusout', ()=>{
+        if(+finalizadorDebito.value < somaSorvetes){
+            finalizadorDebito.value = +finalizadorDebito.value;
+   
+        }
+
+        else if(+finalizadorDebito.value === somaSorvetes){
+            btnConfirmar.addEventListener('click', ()=>{
+                desativarModal();
+            })
+            finalizadorDebito.value = parseFloat(0.00).toFixed(2);
+            
+        } else{
+            finalizadorDebito.value = parseFloat(0.00).toFixed(2);
+            console.log('ERRO!')
+            console.log(somaSorvetes)
+        }
+    })
+})
+
+
+finalizadorCredito.addEventListener('focus', ()=>{
+        let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
+        if(valorAPagar === 0){
+            finalizadorCredito.value = parseFloat(finalizadorCredito.value).toFixed(2);
+            finalizadorCredito.select();    
+        } else{
+            finalizadorCredito.value = parseFloat(valorAPagar).toFixed(2);
+            finalizadorCredito.select();
+        }
+        
+
+        finalizadorCredito.addEventListener('focusout', ()=>{
+            if(+finalizadorCredito.value < somaSorvetes){
+                finalizadorCredito.value = +finalizadorCredito.value; 
+      
+            }
+    
+            else if(+finalizadorCredito.value === somaSorvetes){
+                btnConfirmar.addEventListener('click', ()=>{
+                    desativarModal();
+                })
+                finalizadorCredito.value = parseFloat(0.00).toFixed(2);
+
+            } else{
+                finalizadorCredito.value = parseFloat(0.00).toFixed(2);
+                console.log('ERRO!')
+                console.log(somaSorvetes)
+            }
+        })
+
+        })
+
+        
+
 }
 
-function debitoFocado(){
-    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-    return acumulador + elemento;
-    });
-    finalizadorDebito.value = parseFloat(somaSorvetes).toFixed(2);
-    finalizadorDebito.select()
-}
 
-function creditoFocado(){
-    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-    return acumulador + elemento;
-    });
-    finalizadorCredito.value = parseFloat(somaSorvetes).toFixed(2);
-    finalizadorCredito.select()
-};
+
 
 function desativarModal(){
     finalizadores.classList.remove('ativo');
     finalizadorDinheiro.value = '';
     finalizadorDebito.value = '';
     finalizadorCredito.value = '';
+    mostrarTroco.innerHTML = `TROCO: R$ 0.00`;
     }
 
 function finalizar(){
@@ -199,4 +240,3 @@ function limparCampoBotao(){
     resultado = [];
     preco.innerHTML = `R$`
 }
- 
