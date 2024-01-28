@@ -48,11 +48,19 @@ body{
 .btn-escolha{
     display: inline-block;
     padding: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     border-radius: 4px;
     width: 100px;
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.btn-escolha:hover{
+    color: #fff ;
+    opacity: 80%;
+    border: 1px solid black;
 }
 
 #retro{
