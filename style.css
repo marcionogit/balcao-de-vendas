@@ -6,8 +6,15 @@
 
 body{
     background-color: bisque;
-    padding: 20px;
-    
+    padding: 20px; 
+}
+
+.qtd-preco{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    max-width: 700px;
 }
 
 #qtd{
@@ -19,28 +26,62 @@ body{
     padding: 4px;
 }
 
-#ao-leite{
-    background-color: turquoise;
+#preco{
+    background-color: #fff;
+    display: inline;;
+    padding: 30px 80px;
+    width: 140px;
+    margin-left: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+
+.picole-flex{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 750px;
+    gap: 10px;
+}
+
+.btn-escolha{
     display: inline-block;
-    padding: 20px 40px;
+    padding: 20px;
     cursor: pointer;
     border-radius: 4px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+#retro{
+    background-color: rgb(224, 64, 224);
 }
 
 #fruta{
     background-color: yellow;
-    display: inline-block;
-    padding: 20px 40px;
-    cursor: pointer;
-    border-radius: 4px;
+}
+
+#ao-leite{
+    background-color: rgb(109, 161, 238);
+}
+
+#astros{
+    background-color: turquoise;
 }
 
 #trufa{
     background-color: rgb(173, 172, 93);
-    display: inline-block;
-    padding: 20px 40px;
-    cursor: pointer;
-    border-radius: 4px;
+}
+
+#natturale{
+    background-color: rgb(134, 211, 118);
+}
+
+#acai{
+    background-color: rgb(128, 26, 175);
 }
 
 #mostrar{
@@ -48,21 +89,10 @@ body{
     margin: 16px 0;
     border: 1px solid gray;
     background-color: #fff;
-    height: 400px;
+    height: 250px;
     border-radius: 4px;
-
 }
 
-#preco{
-    background-color: #fff;
-    display: inline;
-    padding: 30px 80px;
-    margin-left: 16px;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 2rem;
-}
 
 #mostrarTroco{
     background-color: #fff;
@@ -93,6 +123,7 @@ body{
     padding: 30px 0px;
     margin-top: 8px;
 }
+
 .finalizador{ 
     border: 1px solid gray;
     background-color: #fff;
@@ -113,9 +144,10 @@ body{
 .ativo{
     display: grid;
 }
-#btn-confirmar{
+
+/* #btn-confirmar{
     
-}
+} */
 
 .botoes-fechamento-venda{
     display: grid;
