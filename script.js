@@ -4,6 +4,7 @@ let lista = [];
 
 // precoAtualizado = []; array onde os resultados das multiplicações feitas serão armazenadas, para que no final consigamos soma-las para saber o total da compra.
 let precoAtualizado = []
+let precoAtualizadoAtacado = []
 
 // #qtd = campo input.
 let quantidade = document.querySelector('#qtd');
@@ -13,6 +14,8 @@ let mostrarHTML = document.querySelector('#mostrar');
 
 // #preco = campo onde será mostrado o total da compra.
 let preco = document.querySelector('#preco');
+
+let desconto = document.querySelector('#desconto');
 
 // .finalizadores = campo para finalizar a compra, por padrão ela será display="none"; Ao ser acionada será adicionada a class="ativo" que mudará o display para "grid".
 const finalizadores = document.querySelector('.finalizador');
@@ -259,7 +262,9 @@ function picoleAoLeite(){
     const copiaAoleite = Object.assign({}, leite);
     lista.push(copiaAoleite);
     let mult = copiaAoleite.qtd * copiaAoleite.valor
+    let multAtacado = copiaAoleite.qtd * copiaAoleite.valorAtacado;
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -274,7 +279,9 @@ function picoleFruta(){
     const copiaFruta = Object.assign({}, fruta);
     lista.push(copiaFruta);
     let mult = copiaFruta.qtd * copiaFruta.valor
+    let multAtacado = copiaFruta.qtd * copiaFruta.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -287,7 +294,9 @@ function picoleTrufaGelada(){
     const copiaTrufaGelada = Object.assign({}, trufa);
     lista.push(copiaTrufaGelada);
     let mult = copiaTrufaGelada.qtd * copiaTrufaGelada.valor
+    let multAtacado = copiaTrufaGelada.qtd * copiaTrufaGelada.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -300,7 +309,9 @@ function picoleRetro(){
     const copiaRetro = Object.assign({}, retro);
     lista.push(copiaRetro);
     let mult = copiaRetro.qtd * copiaRetro.valor
+    let multAtacado = copiaRetro.qtd * copiaRetro.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -313,7 +324,9 @@ function picoleAstros(){
     const copiaAstros = Object.assign({}, astros);
     lista.push(copiaAstros);
     let mult = copiaAstros.qtd * copiaAstros.valor
+    let multAtacado = copiaAstros.qtd * copiaAstros.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -326,7 +339,9 @@ function picoleNatturale(){
     const copiaNatturale = Object.assign({}, natturale);
     lista.push(copiaNatturale);
     let mult = copiaNatturale.qtd * copiaNatturale.valor
+    let multAtacado = copiaNatturale.qtd * copiaNatturale.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -339,7 +354,9 @@ function picoleAcai(){
     const copiaAcai = Object.assign({}, acai);
     lista.push(copiaAcai);
     let mult = copiaAcai.qtd * copiaAcai.valor
+    let multAtacado = copiaAcai.qtd * copiaAcai.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -352,7 +369,9 @@ function picoleSnack(){
     const copiaSnack = Object.assign({}, snack);
     lista.push(copiaSnack);
     let mult = copiaSnack.qtd * copiaSnack.valor
+    let multAtacado = copiaSnack.qtd * copiaSnack.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -365,7 +384,9 @@ function picoleFondue(){
     const copiaFondue = Object.assign({}, fondue);
     lista.push(copiaFondue);
     let mult = copiaFondue.qtd * copiaFondue.valor
+    let multAtacado = copiaFondue.qtd * copiaFondue.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -378,7 +399,9 @@ function picoleLove(){
     const copiaLove = Object.assign({}, love);
     lista.push(copiaLove);
     let mult = copiaLove.qtd * copiaLove.valor
+    let multAtacado = copiaLove.qtd * copiaLove.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -391,7 +414,9 @@ function picoleUnicornio(){
     const copiaUnicornio = Object.assign({}, unicornio);
     lista.push(copiaUnicornio);
     let mult = copiaUnicornio.qtd * copiaUnicornio.valor
+    let multAtacado = copiaUnicornio.qtd * copiaUnicornio.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -404,7 +429,9 @@ function picoleLimaoSiciliano(){
     const copiaLimaoSiciliano = Object.assign({}, limaoSiciliano);
     lista.push(copiaLimaoSiciliano);
     let mult = copiaLimaoSiciliano.qtd * copiaLimaoSiciliano.valor
+    let multAtacado = copiaLimaoSiciliano.qtd * copiaLimaoSiciliano.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -417,7 +444,9 @@ function picoleAlpha(){
     const copiaAlpha = Object.assign({}, alpha);
     lista.push(copiaAlpha);
     let mult = copiaAlpha.qtd * copiaAlpha.valor
+    let multAtacado = copiaAlpha.qtd * copiaAlpha.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -430,7 +459,9 @@ function picoleBelgaBrulee(){
     const copiaBelgaBrulee = Object.assign({}, belgaBrulee);
     lista.push(copiaBelgaBrulee);
     let mult = copiaBelgaBrulee.qtd * copiaBelgaBrulee.valor
+    let multAtacado = copiaBelgaBrulee.qtd * copiaBelgaBrulee.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -443,7 +474,9 @@ function picolePaleta(){
     const copiaPaletas = Object.assign({}, paletas);
     lista.push(copiaPaletas);
     let mult = copiaPaletas.qtd * copiaPaletas.valor
+    let multAtacado = copiaPaletas.qtd * copiaPaletas.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -456,7 +489,9 @@ function picoleBrownieCenoura(){
     const copiaBrownieCenoura = Object.assign({}, brownieCenoura);
     lista.push(copiaBrownieCenoura);
     let mult = copiaBrownieCenoura.qtd * copiaBrownieCenoura.valor
+    let multAtacado = copiaBrownieCenoura.qtd * copiaBrownieCenoura.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -469,7 +504,9 @@ function potinhoCopao(){
     const copiaPoteCopao = Object.assign({}, poteCopao);
     lista.push(copiaPoteCopao);
     let mult = copiaPoteCopao.qtd * copiaPoteCopao.valor
+    let multAtacado = copiaPoteCopao.qtd * copiaPoteCopao.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -482,7 +519,9 @@ function potinhoSundae(){
     const copiaPoteSundae = Object.assign({}, poteSundae);
     lista.push(copiaPoteSundae);
     let mult = copiaPoteSundae.qtd * copiaPoteSundae.valor
+    let multAtacado = copiaPoteSundae.qtd * copiaPoteSundae.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -495,7 +534,9 @@ function potinhoAcai(){
     const copiaAcaiGranola = Object.assign({}, acaiGranola);
     lista.push(copiaAcaiGranola);
     let mult = copiaAcaiGranola.qtd * copiaAcaiGranola.valor
+    let multAtacado = copiaAcaiGranola.qtd * copiaAcaiGranola.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -508,7 +549,9 @@ function poteDuo(){
     const copiaPoteDuo1eMeio = Object.assign({}, poteDuo1eMeio);
     lista.push(copiaPoteDuo1eMeio);
     let mult = copiaPoteDuo1eMeio.qtd * copiaPoteDuo1eMeio.valor
+    let multAtacado = copiaPoteDuo1eMeio.qtd * copiaPoteDuo1eMeio.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -521,7 +564,9 @@ function pote2L(){
     const copiaPote2l = Object.assign({}, pote2l);
     lista.push(copiaPote2l);
     let mult = copiaPote2l.qtd * copiaPote2l.valor
+    let multAtacado = copiaPote2l.qtd * copiaPote2l.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -534,7 +579,9 @@ function poteSpecialle(){
     const copiaSpecialle = Object.assign({}, specialle);
     lista.push(copiaSpecialle);
     let mult = copiaSpecialle.qtd * copiaSpecialle.valor
+    let multAtacado = copiaSpecialle.qtd * copiaSpecialle.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -547,7 +594,9 @@ function poteAcai2L(){
     const copiaPoteAcai2l = Object.assign({}, poteAcai2l);
     lista.push(copiaPoteAcai2l);
     let mult = copiaPoteAcai2l.qtd * copiaPoteAcai2l.valor
+    let multAtacado = copiaPoteAcai2l.qtd * copiaPoteAcai2l.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -560,7 +609,9 @@ function poteAcaiZero(){
     const copiaAcaiZero = Object.assign({}, acaiZero);
     lista.push(copiaAcaiZero);
     let mult = copiaAcaiZero.qtd * copiaAcaiZero.valor
+    let multAtacado = copiaAcaiZero.qtd * copiaAcaiZero.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -573,7 +624,9 @@ function picoleZero(){
     const copiaZeroPicole = Object.assign({}, zeroPicole);
     lista.push(copiaZeroPicole);
     let mult = copiaZeroPicole.qtd * copiaZeroPicole.valor
+    let multAtacado = copiaZeroPicole.qtd * copiaZeroPicole.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -586,7 +639,9 @@ function poteNapoZero(){
     const copiaNapolitanoZero = Object.assign({}, napolitanoZero);
     lista.push(copiaNapolitanoZero);
     let mult = copiaNapolitanoZero.qtd * copiaNapolitanoZero.valor
+    let multAtacado = copiaNapolitanoZero.qtd * copiaNapolitanoZero.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -599,7 +654,9 @@ function miniBombom(){
     const copiaBombom = Object.assign({}, bombom);
     lista.push(copiaBombom);
     let mult = copiaBombom.qtd * copiaBombom.valor
+    let multAtacado = copiaBombom.qtd * copiaBombom.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -612,7 +669,9 @@ function cones(){
     const copiaCone = Object.assign({}, cone);
     lista.push(copiaCone);
     let mult = copiaCone.qtd * copiaCone.valor
+    let multAtacado = copiaCone.qtd * copiaCone.valorAtacado
     precoAtualizado.push(Number(mult))
+    precoAtualizadoAtacado.push(Number(multAtacado))
     mostrarLista()
 }
 
@@ -638,11 +697,20 @@ function mostrarLista(){
     limparCampoQtd()
     limparCampoMostrar();
     calculoAtualizado()
-
+    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
     lista.forEach((item)=>{        
+        
         let mult = item.qtd * item.valor
-        const formatado = `PICOLÉ ${item.descricao} R$ ${mult.toFixed(2)} X ${item.qtd} UND<br>` 
-        mostrarHTML.innerHTML += formatado; 
+        let multAtacado = item.qtd * item.valorAtacado
+        if(somaSorvetes < 40){
+            const formatado = `PICOLÉ ${item.descricao} R$ ${mult.toFixed(2)} X ${item.qtd} UND<br>` 
+            mostrarHTML.innerHTML += formatado; 
+        } else{
+            const formatado = `PICOLÉ ${item.descricao} R$ ${multAtacado.toFixed(2)} X ${item.qtd} UND<br>` 
+            mostrarHTML.innerHTML += formatado; 
+        }
     })
 }
 
@@ -660,10 +728,18 @@ function ativarModal(){
     somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
         return acumulador + elemento;
     });
+    somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
 
     // Escutador para quando o campo #dinheiro for focado
     // valorAPagar = sempre que #dinheiro for focado será feito uma conta para saber quanto ainda resta a ser pago pelo cliente.
     finalizadorDinheiro.addEventListener('focus', ()=>{
+        if(somaSorvetes < 40){
+            somaSorvetes = somaSorvetes
+        } else{
+            somaSorvetes = somaSorvetesAtacado
+        }
         let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
 
         // Se valorAPagar for igual a zero, eu quero que o valor digitado pelo usuário permaneça.
@@ -689,7 +765,7 @@ function ativarModal(){
             else if(+finalizadorDinheiro.value > somaSorvetes){
                 let troco = +finalizadorDinheiro.value - somaSorvetes;
                 finalizadorDinheiro.value = parseFloat(0.00).toFixed(2);
-                mostrarTroco.innerHTML = `TROCO: R$ ${troco.toFixed(2)}`;
+                mostrarTroco.innerHTML = `R$ ${troco.toFixed(2)}`;
            
             } 
 
@@ -705,6 +781,11 @@ function ativarModal(){
     
     // O mesmo será feito para todas as formas de pagamento, com a unica diferença que elas não darão troco.
     finalizadorDebito.addEventListener('focus', ()=>{
+        if(somaSorvetes < 40){
+            somaSorvetes = somaSorvetes
+        } else{
+            somaSorvetes = somaSorvetesAtacado
+        }
         let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
 
         if(valorAPagar === 0){
@@ -740,6 +821,11 @@ function ativarModal(){
 
 
 finalizadorCredito.addEventListener('focus', ()=>{
+    if(somaSorvetes < 40){
+        somaSorvetes = somaSorvetes
+    } else{
+        somaSorvetes = somaSorvetesAtacado
+    }
         let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
         if(valorAPagar === 0){
             finalizadorCredito.value = parseFloat(finalizadorCredito.value).toFixed(2);
@@ -781,15 +867,24 @@ function desativarModal(){
     finalizadorDinheiro.value = '';
     finalizadorDebito.value = '';
     finalizadorCredito.value = '';
-    mostrarTroco.innerHTML = `TROCO: R$ 0.00`;
-    }
+    mostrarTroco.innerHTML = `R$ 0.00`;
+}
     
-    // calculoAtualizado() = essa função atualizará em tempo real o valor total da compra e o retornará no campo #preco.
-    function calculoAtualizado(){
+// calculoAtualizado() = essa função atualizará em tempo real o valor total da compra e o retornará no campo #preco.
+function calculoAtualizado(){
     const somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
         return acumulador + elemento;
     });
-    preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+    const somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+    const descontoCompra = somaSorvetes - somaSorvetesAtacado;
+    if(somaSorvetes < 40){
+        preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+    } else{
+        preco.innerHTML = `R$ ${somaSorvetesAtacado.toFixed(2)}`
+        desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`
+    }
 }
 
 // limparCampoQtd() = quando essa função for chamada, ela sempre limpará o campo de input #qtd.
@@ -807,7 +902,7 @@ function limparCampoBotao(){
     limparCampoMostrar();
     lista= [];
     precoAtualizado= [];
-    preco.innerHTML = `R$`
+    preco.innerHTML = `R$ 0.00`
 }
 
     

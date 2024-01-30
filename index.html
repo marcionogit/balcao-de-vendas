@@ -9,8 +9,17 @@
 <body>
     <div class="qtd-preco">
         <input type="number" id="qtd" placeholder="QUANTIDADE" autofocus>
-        <div id="preco">
-            <span>R$ 0.00</span>
+        <div class="valores">
+            <p>TOTAL:</p>
+            <span id="preco">R$ 0.00</span>
+        </div>
+        <div class="valores">
+            <p>DESCONTO:</p>
+            <span id="desconto">R$ 0.00</span>
+        </div>
+        <div class="valores">
+            <p>TROCO:</p>
+            <span id="mostrarTroco">R$ 0.00</span>
         </div>
     </div>
     <div class="grid-mostrar">
@@ -75,9 +84,6 @@
                 cancelar
             </button>
         </div>
-    </div>
-    <div id="mostrarTroco">
-        TROCO: R$ 0.00
     </div>
     <script src="script.js"></script>
 </body>
