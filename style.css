@@ -1,76 +1,3 @@
-*{
-    padding: 0;
-    margin: 0;
-    
-}
-
-body{
-    background-color: bisque;
-    padding: 20px; 
-}
-
-.qtd-preco{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    max-width: 1000px;
-}
-
-#qtd{
-    display: block;
-    height: 40px;
-    width: 200px;
-    margin: 16px 0;
-    border-radius: 4px;
-    padding: 4px;
-}
-
-.valores{
-    background-color: #fff;
-    display: inline;;
-    padding: 30px 80px;
-    width: 140px;
-    margin-left: 16px;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 24px;
-}
-
-.valores p{
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: rgba(151, 150, 150, 0.473);
-    text-align: center;
-    padding-bottom: 4px;
-}
-
-
-.picole-flex{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.btn-escolha{
-    display: inline-block;
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100px;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.158);
-}
-
-.btn-escolha:hover{
-    color: #fff ;
-    opacity: 80%;
-    border: 1px solid black;
-}
-
 #retro{
     background-color: rgb(224, 64, 224);
 }
@@ -187,6 +114,81 @@ body{
     background-color: rgb(250, 215, 99);
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    background-color: bisque;
+    padding: 20px; 
+}
+
+.qtd-preco{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    max-width: 1000px;
+}
+
+#qtd{
+    display: block;
+    height: 40px;
+    width: 200px;
+    margin: 16px 0;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.valores{
+    background-color: #fff;
+    display: inline;;
+    padding: 30px 80px;
+    width: 140px;
+    margin-left: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.valores p{
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: rgba(151, 150, 150, 0.473);
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+
+.picole-flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-escolha{
+    display: inline-block;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.btn-escolha:hover{
+    color: #fff ;
+    opacity: 80%;
+    border: 1px solid black;
+}
+
+
+
 .grid-mostrar{
     display: grid;
     grid-template-columns: auto 320px;
@@ -196,12 +198,17 @@ body{
 
 #mostrar{
     display: flex;
+    flex-direction: column;
     border: 1px solid gray;
     background-color: #fff;
     height: 394px;
     border-radius: 4px;
     padding: 6px;
     overflow-y: auto;
+}
+
+#mostrar li{
+    cursor: pointer;
 }
 
 

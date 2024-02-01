@@ -55,12 +55,14 @@
             <div id="casquinhas" name="casquinhas"  class="btn-escolha">Casquinhas</div>
             <div id="salgados" name="salgados" class="btn-escolha">Salgados</div>
         </div>
-        <div name="mostrar" id="mostrar" cols="30" rows="10">
-    </div> 
+        <ul name="mostrar" id="mostrar">
+        </ul> 
     </div>
     <button id="Deletar" onclick="limparCampoBotao()">Deletar</button>
     <button id="finalizar" onclick="finalizar()">Finalizar</button>
+    <button id="excluir-item">Excluir</button>
 
+    
     <div class="finalizador">
         <ul class="finalizadores">
             <li class="input-finalizador">
@@ -76,15 +78,23 @@
                 <input type="number" id="credito" name="credito" placeholder="0,00" >
             </li>
         </ul>
+
         <div class="botoes-fechamento-venda">
+
             <button id="btn-confirmar">
                 confirmar
             </button>
+
             <button id="btn-cancelar" onclick="desativarModal()">
                 cancelar
             </button>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    
+    <script src="./js/script.js"></script>
+    <script src="./js/produtos.js"></script>
+    <script src="./js/produtoCalculo.js"></script>
+    <script src="./js/finalizadores.js"></script>
 </body>
 </html>
