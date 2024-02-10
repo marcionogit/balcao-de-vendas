@@ -61,21 +61,22 @@
     <button id="Deletar" onclick="limparCampoBotao()">Deletar</button>
     <button id="finalizar" onclick="finalizar()">Finalizar</button>
     <button id="excluir-item">Excluir</button>
+    <button id="vendas-salvas" onclick="mostrarVendasSalvas()">VENDAS SALVAS</button>
 
     
     <div class="finalizador">
         <ul class="finalizadores">
             <li class="input-finalizador">
                 <label for="dinheiro">DINHEIRO</label>
-                <input type="number" id="dinheiro" name="dinheiro" placeholder="0,00" >
+                <input type="number" id="dinheiro" name="dinheiro" placeholder="0,00" value="" onfocus="focoDinheiro()">
             </li>
             <li class="input-finalizador" >
                 <label for="debito">DÉBITO</label>
-                <input type="number" id="debito" name="debito" placeholder="0,00" >
+                <input type="number" id="debito" name="debito" placeholder="0,00" value="" onfocus="focoDebito()">
             </li>
             <li class="input-finalizador" >
                 <label for="credito">CRÉDITO</label>
-                <input type="number" id="credito" name="credito" placeholder="0,00" >
+                <input type="number" id="credito" name="credito" placeholder="0,00" value="" onfocus="focoCredito()">
             </li>
         </ul>
 
@@ -91,10 +92,11 @@
         </div>
     </div>
 
-    
+
     <script src="./js/script.js"></script>
     <script src="./js/produtos.js"></script>
     <script src="./js/produtoCalculo.js"></script>
     <script src="./js/finalizadores.js"></script>
+    <script src="./js/localStorage.js"></script>
 </body>
 </html>

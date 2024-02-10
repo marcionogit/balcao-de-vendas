@@ -5,6 +5,9 @@ let lista = [];
 let precoAtualizado = []
 let precoAtualizadoAtacado = []
 
+
+
+
 // #qtd = campo input.
 let quantidade = document.querySelector('#qtd');
 
@@ -109,8 +112,8 @@ function limparCampoMostrar(){
 // limparCampoBotao() = quando o botão Deletar for clicado, acionará essa função e sempre limpará os campos mostrar, preco e as arrays lista=[], e precoAtualizado.
 function limparCampoBotao(){
     limparCampoMostrar();
-    lista= [];
-    precoAtualizado= [];
+    lista = [];
+    precoAtualizado = [];
+    precoAtualizadoAtacado = [];
     preco.innerHTML = `R$ 0.00`
 }
-    

@@ -11,161 +11,186 @@ function finalizar(){
   
   // Se a array precoAtualizado estiver vazia dará uma mensagem com um aviso.
   else{
-      console.log('Nenhum item selecionado')
+      
   }
 }
 
 
 
-
+let valoresPagamento = {
+    dinheiro: '',
+    debito: '',
+    credito: ''
+}
 
 // ativarModal() = sempre que o #btn-confirmar for clicado essa função será acionada
+function focoDinheiro(){
+    // somaSorvetes = soma todos os valores dentro da array precoAtualizado[].
+    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+    somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+    finalizadorDinheiro.select()
+
+    if(somaSorvetes < 40){
+        somaSorvetes = somaSorvetes
+      } else{
+          somaSorvetes = somaSorvetesAtacado
+      }
+  let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
+
+     if(finalizadorDinheiro.value === ''|| finalizadorDinheiro.value === '0.00'){
+      finalizadorDinheiro.value = valorAPagar.toFixed(2);
+        
+      
+        finalizadorDinheiro.select()
+      } else if(finalizadorDinheiro.value === valoresPagamento.credito){
+          finalizadorDinheiro.value = valoresPagamento.credito;
+      } if(valorAPagar === 0){
+          finalizadorDinheiro.value = ''
+      }
+
+
+    finalizadorDinheiro.addEventListener('keyup', (event)=>{
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            valoresPagamento.credito = +finalizadorDinheiro.value
+            finalizadorDinheiro.blur();
+            
+            
+        } 
+        })
+        
+
+        finalizadorDinheiro.addEventListener('focusout', ()=>{
+            if(valoresPagamento.credito === +finalizadorDinheiro.value){
+                finalizadorDinheiro.value = valoresPagamento.credito;
+            } else{
+                finalizadorDinheiro.value = ''
+                
+            }
+        })
+    }
+    
+    
+
+
+
+
+function focoDebito(){
+    finalizadorDebito.select()
+
+if(somaSorvetes < 40){
+        somaSorvetes = somaSorvetes
+      } else{
+          somaSorvetes = somaSorvetesAtacado
+      }
+  let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
+
+     if(finalizadorDebito.value === ''|| finalizadorDebito.value === '0.00'){
+      finalizadorDebito.value = valorAPagar.toFixed(2);
+        
+      
+        finalizadorDebito.select()
+      } else if(finalizadorDebito.value === valoresPagamento.dinheiro){
+          finalizadorDebito.value = valoresPagamento.debito;
+      } if(valorAPagar === 0){
+          finalizadorDebito.value = ''
+      }
+
+    finalizadorDebito.addEventListener('keyup', (event)=>{
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            valoresPagamento.debito = +finalizadorDebito.value
+            finalizadorDebito.blur();     
+        } 
+        })
+        
+
+        finalizadorDebito.addEventListener('focusout', ()=>{
+            if(valoresPagamento.debito === +finalizadorDebito.value){
+                finalizadorDebito.value = valoresPagamento.debito;
+            } else{
+                finalizadorDebito.value = '' 
+            }
+          })
+
+      }
+
+
+
+
+
+function focoCredito(){
+finalizadorCredito.select()
+
+if(somaSorvetes < 40){
+    somaSorvetes = somaSorvetes
+  } else{
+      somaSorvetes = somaSorvetesAtacado
+  }
+let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
+
+ if(finalizadorCredito.value === ''|| finalizadorCredito.value === '0.00'){
+  finalizadorCredito.value = valorAPagar.toFixed(2);
+    
+  
+    finalizadorCredito.select()
+  } else if(+finalizadorCredito.value === valoresPagamento.dinheiro){
+      finalizadorCredito.value = +valoresPagamento.credito;
+  } if(valorAPagar === 0){
+      finalizadorCredito.value = ''
+  }
+
+
+finalizadorCredito.addEventListener('keyup', (event)=>{
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        valoresPagamento.credito= +finalizadorCredito.value
+        finalizadorCredito.blur();   
+    } 
+    })
+    
+
+    finalizadorCredito.addEventListener('focusout', ()=>{
+        if(valoresPagamento.credito === +finalizadorCredito.value){
+            finalizadorCredito.value = valoresPagamento.credito;
+        } else{
+            finalizadorCredito.value = ''
+        }
+        })
+    }
 function ativarModal(){
   // Adicionando a class="ativo" no modal transformando seu display: none; => grid; ao CSS.
   finalizadores.classList.add('ativo');
   
-  // somaSorvetes = soma todos os valores dentro da array precoAtualizado[].
-  somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-      return acumulador + elemento;
-  });
-  somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
-      return acumulador + elemento;
-  });
 
-  // Escutador para quando o campo #dinheiro for focado
-  // valorAPagar = sempre que #dinheiro for focado será feito uma conta para saber quanto ainda resta a ser pago pelo cliente.
-  finalizadorDinheiro.addEventListener('focus', ()=>{
-      if(somaSorvetes < 40){
-          somaSorvetes = somaSorvetes
-      } else{
-          somaSorvetes = somaSorvetesAtacado
-      }
-      let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
-
-      // Se valorAPagar for igual a zero, eu quero que o valor digitado pelo usuário permaneça.
-      // Senão no lugar ficará o restante da compra, ou seja "valorAPagar".
-      // .select() = serve para quando o campo for focado, todos os numeros dentro sejam selecionados.
-      if(valorAPagar === 0){
-          finalizadorDinheiro.value = parseFloat(+finalizadorDinheiro.value).toFixed(2);
-          finalizadorDinheiro.select();
-      } else{
-          finalizadorDinheiro.value = parseFloat(valorAPagar).toFixed(2);
-          finalizadorDinheiro.select();
-
-          // Quando o dinheiro deixar de ser focado e o valor for...
-          finalizadorDinheiro.addEventListener('focusout', ()=>{
-          // IGUAL o valor total da compra, o dinheiro receberá 0,00.
-          if(+finalizadorDinheiro.value === somaSorvetes){
-              finalizadorDinheiro.value = parseFloat(0.00).toFixed(2);
-          } 
-
-          // E se o valor digitado no campo de dinheiro for MAIOR que o valor total da compra.
-          // troco receberá o valor digitado no campo menos o valor total da compra.
-          // logo em seguida limpamos o campo dinheiro e mostramos o troco na tela com innerHTML.
-          else if(+finalizadorDinheiro.value > somaSorvetes){
-              let troco = +finalizadorDinheiro.value - somaSorvetes;
-              finalizadorDinheiro.value = parseFloat(0.00).toFixed(2);
-              mostrarTroco.innerHTML = `R$ ${troco.toFixed(2)}`;
-         
-          } 
-
-          // E se o valor digitado no campo de dinheiro for menor que a o valor total da compra queremos que o valor digitado permaneça.
-          else if(+finalizadorDinheiro.value < somaSorvetes){
-              finalizadorDinheiro.value = +finalizadorDinheiro.value;
-          }
-          })
-      }
+   
+btnConfirmar.addEventListener('click', ()=>{
+    let valorFinalizador = valoresPagamento.dinheiro + valoresPagamento.debito + valoresPagamento.credito;
+    if(+valorFinalizador === somaSorvetes){
+        salvarLocalStorage.push(`DINHEIRO:${finalizadorDinheiro.value} DEBITO:${finalizadorDebito.value} CREDITO:${finalizadorCredito.value}`);
+        salvandoLocalStorage();
+    } else{
+        console.log('confirme o finalizador!')
+        
+    }
   })
- 
-  
-  
-  // O mesmo será feito para todas as formas de pagamento, com a unica diferença que elas não darão troco.
-  finalizadorDebito.addEventListener('focus', ()=>{
-      if(somaSorvetes < 40){
-          somaSorvetes = somaSorvetes
-      } else{
-          somaSorvetes = somaSorvetesAtacado
-      }
-      let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
-
-      if(valorAPagar === 0){
-          finalizadorDebito.value = parseFloat(finalizadorDebito.value).toFixed(2);
-          finalizadorDebito.select();    
-      } else{
-          finalizadorDebito.value = parseFloat(valorAPagar).toFixed(2);
-          finalizadorDebito.select();
-      }
-      
-      finalizadorDebito.addEventListener('focusout', ()=>{
-      if(+finalizadorDebito.value < somaSorvetes){
-          finalizadorDebito.value = +finalizadorDebito.value;
- 
-      }
-
-      else if(+finalizadorDebito.value === somaSorvetes){
-          btnConfirmar.addEventListener('click', ()=>{
-              desativarModal();
-          })
-          finalizadorDebito.value = parseFloat(0.00).toFixed(2);
-          
-      } 
-
-      // Se o valor no campo debito for maior que o valor total da compre dará um erro e o valor do campo mudará para zero novamente.
-      else{
-          finalizadorDebito.value = parseFloat(0.00).toFixed(2);
-          console.log('ERRO!')
-          console.log(somaSorvetes)
-      }
-  })
-})
-
-
-finalizadorCredito.addEventListener('focus', ()=>{
-  if(somaSorvetes < 40){
-      somaSorvetes = somaSorvetes
-  } else{
-      somaSorvetes = somaSorvetesAtacado
-  }
-      let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebito.value + +finalizadorCredito.value);
-      if(valorAPagar === 0){
-          finalizadorCredito.value = parseFloat(finalizadorCredito.value).toFixed(2);
-          finalizadorCredito.select();    
-      } else{
-          finalizadorCredito.value = parseFloat(valorAPagar).toFixed(2);
-          finalizadorCredito.select();
-      }
-      
-
-      finalizadorCredito.addEventListener('focusout', ()=>{
-          if(+finalizadorCredito.value < somaSorvetes){
-              finalizadorCredito.value = +finalizadorCredito.value; 
-          }
-  
-          else if(+finalizadorCredito.value === somaSorvetes){
-              btnConfirmar.addEventListener('click', ()=>{
-                  desativarModal();
-              })
-              finalizadorCredito.value = parseFloat(0.00).toFixed(2);
-          } 
-
-          // Se o valor no campo credito for maior que o valor total da compre dará um erro e o valor do campo mudará para zero novamente.
-          else{
-              finalizadorCredito.value = parseFloat(0.00).toFixed(2);
-              console.log('ERRO!');
-              console.log(somaSorvetes);
-          }
-      })
-
-      })
 }
 
 
-// destivarModal() = quando essa função for chamada a class="ativo"; será removida fazendo com que o modal volte a ficar escondido.
-// Também irei resetar os campos DINHEIRO, DEBITO, CRÉDITO e TROCO.
+
+
 function desativarModal(){
+  finalizadorDinheiro.removeEventListener('focus', ()=>{})
+  finalizadorDebito.removeEventListener('focus', ()=>{})
+  finalizadorCredito.removeEventListener('focus', ()=>{})
   finalizadores.classList.remove('ativo');
   finalizadorDinheiro.value = '';
   finalizadorDebito.value = '';
   finalizadorCredito.value = '';
+  
   mostrarTroco.innerHTML = `R$ 0.00`;
 }
