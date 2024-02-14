@@ -18,9 +18,9 @@ function finalizar(){
 
 
 let valoresPagamento = {
-    dinheiro: '',
-    debito: '',
-    credito: ''
+    dinheiro: +'',
+    debito: +'',
+    credito: +''
 }
 
 // ativarModal() = sempre que o #btn-confirmar for clicado essa função será acionada
@@ -80,6 +80,12 @@ function focoDinheiro(){
 
 
 function focoDebito(){
+    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+    somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
     finalizadorDebito.select()
 
 if(somaSorvetes < 40){
@@ -124,6 +130,12 @@ if(somaSorvetes < 40){
 
 
 function focoCredito(){
+    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+    somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
 finalizadorCredito.select()
 
 if(somaSorvetes < 40){
@@ -163,6 +175,12 @@ finalizadorCredito.addEventListener('keyup', (event)=>{
         })
     }
 function ativarModal(){
+    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
+    somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
   // Adicionando a class="ativo" no modal transformando seu display: none; => grid; ao CSS.
   finalizadores.classList.add('ativo');
   
@@ -170,12 +188,13 @@ function ativarModal(){
    
 btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = valoresPagamento.dinheiro + valoresPagamento.debito + valoresPagamento.credito;
-    if(+valorFinalizador === somaSorvetes){
+    if(+valorFinalizador.toFixed(1) === +somaSorvetes.toFixed(1)){
         salvarLocalStorage.push(`DINHEIRO:${finalizadorDinheiro.value} DEBITO:${finalizadorDebito.value} CREDITO:${finalizadorCredito.value}`);
         salvandoLocalStorage();
     } else{
         console.log('confirme o finalizador!')
-        
+        console.log(valorFinalizador)
+        console.log(somaSorvetes)
     }
   })
 }

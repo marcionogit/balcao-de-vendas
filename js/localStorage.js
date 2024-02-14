@@ -1,4 +1,8 @@
+let arr = []
 let salvarLocalStorage = []
+// arr = salvarLocalStorage
+// meuArray = salvarNoLocalStorage
+
 
 function salvandoLocalStorage(){
   console.log('salvou!')
@@ -6,25 +10,33 @@ function salvandoLocalStorage(){
   precoAtualizado= [];
   desativarModal()
   preco.innerHTML = `R$ 0.00`
-  // window.location.reload()
+  window.location.reload()
   limparCampoMostrar()
   limparCampoQtd()
-  console.log(salvarLocalStorage)
+
   valorAPagar = 0
 
-  if(localStorage.salvoNoLocalStorage){
-    salvarLocalStorage = JSON.parse(localStorage.getItem('salvoNoLocalStorage'))
+  if(localStorage.meuArray){
+    arr = JSON.parse(localStorage.getItem('meuArray'))
   }
-  localStorage.salvoNoLocalStorage = JSON.stringify(salvarLocalStorage);
+
+  arr.push(salvarLocalStorage)
+  salvarLocalStorage = []
+  localStorage.meuArray = JSON.stringify(arr);
 }
 
 function mostrarVendasSalvas(){
-  if(localStorage.salvoNoLocalStorage){
-    salvarLocalStorage = JSON.parse(localStorage.getItem('salvoNoLocalStorage'))
+  if(localStorage.meuArray){
+    arr = JSON.parse(localStorage.getItem('meuArray'))
   }
 
-  for(let i in salvarLocalStorage){
-    console.log(salvarLocalStorage[i])
-  }
+arr.forEach((item)=>{
+    console.log(item)
+  })
 }
   
+function limparFechamento(){
+  arr = [];
+  localStorage.meuArray = JSON.stringify(arr);
+  console.log('FECHAMENTO LIMPO!')
+}
