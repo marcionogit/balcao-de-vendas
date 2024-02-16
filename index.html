@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema caixa</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <div class="qtd-preco">
@@ -55,8 +55,13 @@
             <div id="casquinhas" name="casquinhas"  class="btn-escolha">Casquinhas</div>
             <div id="salgados" name="salgados" class="btn-escolha">Salgados</div>
         </div>
-        <ul name="mostrar" id="mostrar">
-        </ul> 
+        <div id="mostrar-item">
+            <span class="cabecalho">
+                <span>DESCRIÇÃO</span>
+                <span>VALOR</span>
+            </span>
+            <ul name="mostrar" id="mostrar"></ul>
+        </div> 
     </div>
     <button id="Deletar" onclick="limparCampoBotao()">Deletar</button>
     <button id="finalizar" onclick="finalizar()">Finalizar</button>

@@ -66,22 +66,25 @@ function mostrarLista(){
         let mult = item.qtd * item.valor
         let multAtacado = item.qtd * item.valorAtacado
         if(somaSorvetes < 40){
-            let formatado = `<li value="${index}" class="index-excluir" >PICOLÉ ${item.descricao} R$ ${mult.toFixed(2)} X ${item.qtd} UND</li>` 
+            let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao}
+            ${item.valor.toFixed(2)} x ${item.qtd} und. <strong>R$ ${mult.toFixed(2)}</strong></li>` 
             mostrarHTML.innerHTML += formatado; 
             
         } else{
-            let formatado = `<li value="${index}" class="index-excluir" >PICOLÉ ${item.descricao} R$ ${multAtacado.toFixed(2)} X ${item.qtd} UND</li>` 
+            let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
             mostrarHTML.innerHTML += formatado; 
         }
         let indexExcluir = document.querySelectorAll('.index-excluir')
         indexExcluir.forEach((item)=>{
 
             item.addEventListener('click', ()=>{
-                if(item.style.background === "blue"){
+         
+
+                if(item.style.background === "lightgrey"){
                     item.style.background = "white" 
                     
                 } else{
-                    item.style.background = "blue" 
+                    item.style.background = "lightgrey" 
                     botaoExcluir.addEventListener('click', ()=>{
                         excluirItemLista(item.value)
                     })

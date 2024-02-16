@@ -46,8 +46,8 @@ function focoDinheiro(){
         
       
         finalizadorDinheiro.select()
-      } else if(finalizadorDinheiro.value === valoresPagamento.credito){
-          finalizadorDinheiro.value = valoresPagamento.credito;
+      } else if(finalizadorDinheiro.value === valoresPagamento.dinheiro){
+          finalizadorDinheiro.value = valoresPagamento.dinheiro;
       } if(valorAPagar === 0){
           finalizadorDinheiro.value = ''
       }
@@ -56,7 +56,7 @@ function focoDinheiro(){
     finalizadorDinheiro.addEventListener('keyup', (event)=>{
         if (event.key === 'Enter') {
             event.preventDefault();
-            valoresPagamento.credito = +finalizadorDinheiro.value
+            valoresPagamento.dinheiro = +finalizadorDinheiro.value
             finalizadorDinheiro.blur();
             
             
@@ -65,8 +65,8 @@ function focoDinheiro(){
         
 
         finalizadorDinheiro.addEventListener('focusout', ()=>{
-            if(valoresPagamento.credito === +finalizadorDinheiro.value){
-                finalizadorDinheiro.value = valoresPagamento.credito;
+            if(valoresPagamento.dinheiro === +finalizadorDinheiro.value){
+                finalizadorDinheiro.value = valoresPagamento.dinheiro;
             } else{
                 finalizadorDinheiro.value = ''
                 
@@ -100,7 +100,7 @@ if(somaSorvetes < 40){
         
       
         finalizadorDebito.select()
-      } else if(finalizadorDebito.value === valoresPagamento.dinheiro){
+      } else if(finalizadorDebito.value === valoresPagamento.debito){
           finalizadorDebito.value = valoresPagamento.debito;
       } if(valorAPagar === 0){
           finalizadorDebito.value = ''
@@ -150,7 +150,7 @@ let valorAPagar = somaSorvetes - (+finalizadorDinheiro.value + +finalizadorDebit
     
   
     finalizadorCredito.select()
-  } else if(+finalizadorCredito.value === valoresPagamento.dinheiro){
+  } else if(+finalizadorCredito.value === valoresPagamento.credito){
       finalizadorCredito.value = +valoresPagamento.credito;
   } if(valorAPagar === 0){
       finalizadorCredito.value = ''
@@ -189,7 +189,7 @@ function ativarModal(){
 btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = valoresPagamento.dinheiro + valoresPagamento.debito + valoresPagamento.credito;
     if(+valorFinalizador.toFixed(1) === +somaSorvetes.toFixed(1)){
-        salvarLocalStorage.push(`DINHEIRO:${finalizadorDinheiro.value} DEBITO:${finalizadorDebito.value} CREDITO:${finalizadorCredito.value}`);
+        salvarLocalStorage.push(`VALOR: R$${somaSorvetes.toFixed(2)} / DINHEIRO:R$${valoresPagamento.dinheiro} DEBITO:R$${valoresPagamento.debito} CREDITO:R$${valoresPagamento.credito}`, lista, );
         salvandoLocalStorage();
     } else{
         console.log('confirme o finalizador!')
