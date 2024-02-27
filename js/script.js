@@ -18,6 +18,9 @@ let mostrarHTML = document.querySelector('#mostrar');
 let preco = document.querySelector('#preco');
 
 let desconto = document.querySelector('#desconto');
+let qtdDesconto = document.querySelector('#qtd-desconto');
+
+let btnAtacado = document.querySelector('#btn-atacado');
 
 // .finalizadores = campo para finalizar a compra, por padrão ela será display="none"; Ao ser acionada será adicionada a class="ativo" que mudará o display para "grid".
 const finalizadores = document.querySelector('.finalizador');
@@ -54,6 +57,35 @@ const botaoExcluir = document.querySelector('#excluir-item');
 // mult = variavel feita para armazenar o calculo do item do loop vezes a sua quantidade
 
 // formatado = variavel que armazena a maneira como será formatada a lista de item na tela.
+
+btnAtacado.addEventListener('click', ()=>{
+    if(lista.length > 0){
+            somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+            return acumulador + elemento;
+        });
+        
+        let somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+            return acumulador + elemento;
+        });
+        if(somaSorvetes < 40){
+            limparCampoQtd()
+        limparCampoMostrar();
+        calculoAtualizado()
+        lista.forEach((item, index)=>{        
+            
+            let multAtacado = item.qtd * item.valorAtacado
+            let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
+            mostrarHTML.innerHTML += formatado;
+
+        })
+        qtdDesconto.innerHTML = `DE:${somaSorvetes.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
+        } 
+    } else{
+        console.log('nenhum item selecionado')
+    }
+    
+})
+
 function mostrarLista(){
     limparCampoQtd()
     limparCampoMostrar();
@@ -61,18 +93,27 @@ function mostrarLista(){
     somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
         return acumulador + elemento;
     });
+
+    let somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+        return acumulador + elemento;
+    });
     lista.forEach((item, index)=>{        
         
+        qtdDesconto.innerHTML = ''
         let mult = item.qtd * item.valor
         let multAtacado = item.qtd * item.valorAtacado
         if(somaSorvetes < 40){
+
             let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao}
             ${item.valor.toFixed(2)} x ${item.qtd} und. <strong>R$ ${mult.toFixed(2)}</strong></li>` 
             mostrarHTML.innerHTML += formatado; 
+
             
         } else{
             let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
             mostrarHTML.innerHTML += formatado; 
+
+            qtdDesconto.innerHTML = `DE:${somaSorvetes.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
         }
         let indexExcluir = document.querySelectorAll('.index-excluir')
         indexExcluir.forEach((item)=>{
@@ -119,4 +160,5 @@ function limparCampoBotao(){
     precoAtualizado = [];
     precoAtualizadoAtacado = [];
     preco.innerHTML = `R$ 0.00`
+    desconto.innerHTML = `R$ 0.00`
 }

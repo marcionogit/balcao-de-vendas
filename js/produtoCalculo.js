@@ -437,15 +437,24 @@ function cones(){
 
 // calculoAtualizado() = essa função atualizará em tempo real o valor total da compra e o retornará no campo #preco.
 function calculoAtualizado(){
-  const somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
+  let somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
       return acumulador + elemento;
   });
-  const somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
+  let somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
       return acumulador + elemento;
   });
-  const descontoCompra = somaSorvetes - somaSorvetesAtacado;
+  let descontoCompra = somaSorvetes - somaSorvetesAtacado;
   if(somaSorvetes < 40){
+    preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+    desconto.innerHTML = `R$ 0.00`
+
+    btnAtacado.addEventListener('click', ()=>{
+      somaSorvetes = somaSorvetesAtacado
+      
       preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+      desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`
+
+    })
   } else{
       preco.innerHTML = `R$ ${somaSorvetesAtacado.toFixed(2)}`
       desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`

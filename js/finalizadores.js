@@ -58,7 +58,11 @@ function focoDinheiro(){
             event.preventDefault();
             valoresPagamento.dinheiro = +finalizadorDinheiro.value
             finalizadorDinheiro.blur();
-            
+            if(valoresPagamento.dinheiro > valorAPagar){
+                const troco = valoresPagamento.dinheiro - valorAPagar;
+                mostrarTroco.innerHTML = `R$ ${troco.toFixed(2)}`;
+            }
+
             
         } 
         })
@@ -68,8 +72,8 @@ function focoDinheiro(){
             if(valoresPagamento.dinheiro === +finalizadorDinheiro.value){
                 finalizadorDinheiro.value = valoresPagamento.dinheiro;
             } else{
+                mostrarTroco.innerHTML = `R$ 0.00`;
                 finalizadorDinheiro.value = ''
-                
             }
         })
     }

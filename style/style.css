@@ -30,6 +30,13 @@ body{
     padding: 4px;
 }
 
+#qtd-desconto{
+    display: inline-block;
+    font-weight: 700;
+    margin-left: 20px;
+    font-size: 24px;
+}
+
 .valores{
     background-color: #fff;
     display: inline;;
@@ -75,6 +82,19 @@ body{
     border: 1px solid black;
 }
 
+.btn-acoes{
+    padding: 16px 32px;
+}
+
+.btn-limpar-atacado{
+    grid-column: 2;
+    margin-top: 20px;
+}
+
+.btn-grupo{
+    margin-top: 20px;
+    display: inline-block;
+}
 
 
 .grid-mostrar{

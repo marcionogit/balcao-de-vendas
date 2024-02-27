@@ -55,19 +55,27 @@
             <div id="casquinhas" name="casquinhas"  class="btn-escolha">Casquinhas</div>
             <div id="salgados" name="salgados" class="btn-escolha">Salgados</div>
         </div>
-        <div id="mostrar-item">
-            <span class="cabecalho">
-                <span>DESCRIÇÃO</span>
-                <span>VALOR</span>
-            </span>
-            <ul name="mostrar" id="mostrar"></ul>
-        </div> 
+        <div>
+            <div id="mostrar-item">
+                <span class="cabecalho">
+                    <span>DESCRIÇÃO</span>
+                    <span>VALOR</span>
+                </span>
+                <ul name="mostrar" id="mostrar"></ul>
+            </div>
+            <div class="btn-limpar-atacado">
+                <button id="excluir-item" class="btn-acoes">Excluir</button>
+                <button id="btn-atacado" class="btn-acoes">Atacado</button>
+            </div>
+        </div>
     </div>
-    <button id="Deletar" onclick="limparCampoBotao()">Deletar</button>
-    <button id="finalizar" onclick="finalizar()">Finalizar</button>
-    <button id="excluir-item">Excluir</button>
-    <button id="vendas-salvas" onclick="mostrarVendasSalvas()">VENDAS SALVAS</button>
-    <button id="limpar-fechamento" onclick="limparFechamento()">limpar Fechamento</button>
+    <div class="btn-grupo">
+        <button id="deletar" onclick="limparCampoBotao()" class="btn-acoes">Deletar</button>
+        <button id="limpar-fechamento" onclick="limparFechamento()" class="btn-acoes">limpar Fechamento</button>
+        <button id="vendas-salvas" onclick="mostrarVendasSalvas()" class="btn-acoes">VENDAS SALVAS</button>
+        <button id="finalizar" onclick="finalizar()" class="btn-acoes">Finalizar</button>
+    </div>
+    <div id="qtd-desconto"></div>
 
     
     <div class="finalizador">
