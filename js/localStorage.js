@@ -1,8 +1,7 @@
 let arr = []
 let salvarLocalStorage = []
-// arr = salvarLocalStorage
-// meuArray = salvarNoLocalStorage
-
+const mostrarVendasLocalStorage = document.querySelector('.mostrar-vendas-salvas');
+const cancelaMostrarSalva = document.querySelector('#cancelarVendasSalvas');
 
 function salvandoLocalStorage(){
   console.log('salvou!')
@@ -26,17 +25,33 @@ function salvandoLocalStorage(){
 }
 
 function mostrarVendasSalvas(){
-  if(localStorage.meuArray){
-    arr = JSON.parse(localStorage.getItem('meuArray'))
-  }
+    mostrarVendasLocalStorage.classList.add('ativo')
+    
+    if(localStorage.meuArray){
+      arr = JSON.parse(localStorage.getItem('meuArray'))
+      console.log(arr)
+        for(let i in arr){
+      let p = document.createElement('p');
+      p.innerHTML = arr[i];
+      mostrarVendasLocalStorage.append(p);
+      
+      
 
-arr.forEach((item)=>{
-    console.log(item)
-  })
-}
+      cancelaMostrarSalva.addEventListener('click', ()=>{
+        mostrarVendasLocalStorage.classList.remove('ativo');
+        p.remove();
+        document.querySelector('#vendas-salvas').disabled = false;
+      })
+      document.querySelector('#vendas-salvas').disabled = true;
+    }
+    } 
+
   
-function limparFechamento(){
-  arr = [];
-  localStorage.meuArray = JSON.stringify(arr);
-  console.log('FECHAMENTO LIMPO!')
-}
+    
+  }
+  
+  function limparFechamento(){
+    arr = [];
+    localStorage.meuArray = JSON.stringify(arr);
+    console.log('FECHAMENTO LIMPO!')
+  }

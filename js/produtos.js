@@ -1,224 +1,48 @@
 // retro = {}; = objeto com todas as especificações do picolé ao retro varejo. Esse padrão se repete ao longo de todos os outros produtos
-const retro = {
-  descricao: 'RETRO',
-  valor: 1.50,
-  valorAtacado: 1.50,
-  qtd: 0,
-  cod: 1
+function Sorvete(descricaoSorvete, valorSorvete, valorAtacadoSorvete, qtdSorvete, codSorvete){
+  this.descricao = descricaoSorvete,
+  this.valor = valorSorvete,
+  this.valorAtacado = valorAtacadoSorvete,
+  this.qtd = qtdSorvete,
+  this.cod = codSorvete
 }
 
-const fruta = {
-  descricao: 'FRUTA',
-  valor: 2.50,
-  valorAtacado: 2.25,
-  qtd: 0,
-  cod: 2
-}
+// isso é o mesmo que:
+const retro = new Sorvete('RETRO', 1.50, 1.50, 0, 1)
+// isso
 
-const leite = {
-  descricao: 'AO LEITE',
-  valor: 2.80,
-  valorAtacado: 2.50,
-  qtd: 0,
-  cod: 3
-}
-
-const love = {
-  descricao: 'LOVE',
-  valor: 3.00,
-  valorAtacado: 3.00,
-  qtd: 0,
-  cod: 4
-}
-
-const fondue = {
-  descricao: 'FONDUE',
-  valor: 3.80,
-  valorAtacado: 3.50,
-  qtd: 0,
-  cod: 5
-}
-
-const natturale = {
-  descricao: 'NATTURALE',
-  valor: 3.90,
-  valorAtacado: 3.60,
-  qtd: 0,
-  cod: 6
-}
-
-const unicornio = {
-  descricao: 'UNICORNIO',
-  valor: 3.90,
-  valorAtacado: 3.40,
-  qtd: 0,
-  cod: 7
-}
-
-const astros = {
-  descricao: 'ASTROS',
-  valor: 4.50,
-  valorAtacado: 4.25,
-  qtd: 0,
-  cod: 8
-}
-
-const acai = {
-  descricao: 'AÇAI',
-  valor: 4.75,
-  valorAtacado: 4.40,
-  qtd: 0,
-  cod: 9
-}
-
-const trufa = {
-  descricao: 'TRUFA GELADA',
-  valor: 4.80,
-  valorAtacado: 4.50,
-  qtd: 0,
-  cod: 10
-}
-
-const limaoSiciliano = {
-  descricao: 'LIMÃO SICILIANO',
-  valor: 4.90,
-  valorAtacado: 4.40,
-  qtd: 0,
-  cod: 11
-}
-
-const zeroPicole = {
-  descricao: 'PICOLÉ ZERO',
-  valor: 4.90,
-  valorAtacado: 4.40,
-  qtd: 0,
-  cod: 12
-}
-
-const poteCopao = {
-  descricao: 'COPÃO',
-  valor: 5.75,
-  valorAtacado: 5.75,
-  qtd: 0,
-  cod: 13
-}
-
-const snack = {
-  descricao: 'SNACK',
-  valor: 5.90,
-  valorAtacado: 5.40,
-  qtd: 0,
-  cod: 14
-}
-
-const alpha = {
-  descricao: 'ALPHA PREMIUM',
-  valor: 5.90,
-  valorAtacado: 5.40,
-  qtd: 0,
-  cod: 15
-}
-
-const poteSundae = {
-  descricao: 'SUNDAE',
-  valor: 5.90,
-  valorAtacado: 5.60,
-  qtd: 0,
-  cod: 16
-}
-
-const paletas = {
-  descricao: 'PALETA',
-  valor: 6.90,
-  valorAtacado: 6.60,
-  qtd: 0,
-  cod: 17
-}
-
-const cone = {
-  descricao: 'CONE',
-  valor: 7.00,
-  valorAtacado: 9.50,
-  qtd: 0,
-  cod: 18
-}
-
-const belgaBrulee = {
-  descricao: 'BELGA / BRULEE',
-  valor: 7.50,
-  valorAtacado: 6.90,
-  qtd: 0,
-  cod: 19
-}
-
-const brownieCenoura = {
-  descricao: 'BROWNIE / CENOURA',
-  valor: 8.50,
-  valorAtacado: 7.90,
-  qtd: 0,
-  cod: 20
-}
-
-const acaiGranola = {
-  descricao: 'AÇAI C/ GRANOLA',
-  valor: 8.90,
-  valorAtacado: 8.60,
-  qtd: 0,
-  cod: 21
-}
-
-const bombom = {
-  descricao: 'MINI BOMBOM',
-  valor: 9.50,
-  valorAtacado: 8.90,
-  qtd: 0,
-  cod: 22
-}
-
-const poteDuo1eMeio = {
-  descricao: 'DUO 1,5L',
-  valor: 15.90,
-  valorAtacado: 15.90,
-  qtd: 0,
-  cod: 23
-}
-
-const pote2l = {
-  descricao: 'POTE 2L',
-  valor: 19.90,
-  valorAtacado: 19.90,
-  qtd: 0,
-  cod: 24
-}
-
-const specialle = {
-  descricao: 'SPECIALLE',
-  valor: 26.90,
-  valorAtacado: 26.90,
-  qtd: 0,
-  cod: 25
-}
-
-const napolitanoZero = {
-  descricao: 'NAPOLITANO ZERO',
-  valor: 26.90,
-  valorAtacado: 26.90,
-  qtd: 0,
-  cod: 26
-}
-
-const poteAcai2l = {
-  descricao: 'AÇAI 2L',
-  valor: 37.90,
-  valorAtacado: 35.90,
-  qtd: 0,
-  cod: 27
-}
-
-const acaiZero = {
-  descricao: 'AÇAI 1L ZERO',
-  valor: 37.90,
-  valorAtacado: 36.90,
-  qtd: 0,
-  cod: 28
-}
+// const retro = {
+  //   descricao: 'RETRO',
+  //   valor: 1.50,
+  //   valorAtacado: 1.50,
+  //   qtd: 0,
+  //   cod: 1
+  // }
+  
+const fruta = new Sorvete('FRUTA',2.50, 2.25, 0, 2);
+const leite = new Sorvete('AO LEITE', 2.80, 2.50, 0, 3);
+const love = new Sorvete('LOVE', 3.00, 3.00, 0, 4);
+const fondue = new Sorvete('FONDUE', 3.80, 3.50, 0, 5);
+const natturale = new Sorvete('NATTURALE', 3.90, 3.60, 0, 6);
+const unicornio = new Sorvete('UNICORNIO', 3.90, 3.40, 0, 7);
+const astros = new Sorvete('ASTROS', 4.50, 4.25, 0, 8);
+const acai = new Sorvete('AÇAI', 4.75, 4.40, 0, 9);
+const trufa = new Sorvete('GELADA', 4.80, 4.50, 0, 10);
+const limaoSiciliano = new Sorvete('LIMÃO SICILIANO', 4.90, 4.40, 0, 11);
+const zeroPicole = new Sorvete('PICOLÉ ZERO', 4.90, 4.40, 0, 12);
+const poteCopao = new Sorvete('COPÃO', 5.75, 5.75, 0, 13);
+const snack = new Sorvete('SNACK', 5.90, 5.40, 0, 14);
+const alpha = new Sorvete('ALPHA PREMIUM', 5.90, 5.40, 0, 15);
+const poteSundae = new Sorvete('SUNDAE', 5.90, 5.60, 0, 16);
+const paletas = new Sorvete('PALETA', 6.90, 6.60, 0, 17);
+const cone = new Sorvete('CONE',7.00, 6.50, 0, 18);
+const belgaBrulee = new Sorvete('BELGA / BRULEE',7.50, 6.90, 0, 19);
+const brownieCenoura = new Sorvete('BROWNIE / CENOURA',8.50, 7.90, 0, 20);
+const acaiGranola = new Sorvete('AÇAI C/ GRANOLA',8.90, 8.60, 0, 21);
+const bombom = new Sorvete('MINI BOMBOM', 9.50, 8.90, 0, 22);
+const poteDuo1eMeio = new Sorvete('DUO 1,5L', 15.90, 15.90, 0, 23);
+const pote2l = new Sorvete('POTE 2L', 19.90, 19.90, 0, 24);
+const specialle = new Sorvete('SPECIALLE', 26.90, 26.90, 0, 25);
+const napolitanoZero = new Sorvete('NAPOLITANO ZERO', 26.90, 26.90, 0, 26);
+const poteAcai2l = new Sorvete('AÇAI 2L', 37.90, 35.90, 0, 27);
+const acaiZero = new Sorvete('AÇAI 1L ZERO', 37.90, 36.90, 0, 28);

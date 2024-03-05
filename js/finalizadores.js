@@ -193,7 +193,9 @@ function ativarModal(){
 btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = valoresPagamento.dinheiro + valoresPagamento.debito + valoresPagamento.credito;
     if(+valorFinalizador.toFixed(1) === +somaSorvetes.toFixed(1)){
-        salvarLocalStorage.push(`VALOR: R$${somaSorvetes.toFixed(2)} / DINHEIRO:R$${valoresPagamento.dinheiro} DEBITO:R$${valoresPagamento.debito} CREDITO:R$${valoresPagamento.credito}`, lista, );
+        salvarLocalStorage.push(`VALOR: R$${somaSorvetes.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);
+
+        
         salvandoLocalStorage();
     } else{
         console.log('confirme o finalizador!')
