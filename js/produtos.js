@@ -46,3 +46,34 @@ const specialle = new Sorvete('SPECIALLE', 26.90, 26.90, 0, 25);
 const napolitanoZero = new Sorvete('NAPOLITANO ZERO', 26.90, 26.90, 0, 26);
 const poteAcai2l = new Sorvete('AÇAI 2L', 37.90, 35.90, 0, 27);
 const acaiZero = new Sorvete('AÇAI 1L ZERO', 37.90, 36.90, 0, 28);
+
+const mapaProdutos = {
+  'retro':retro,
+  'fruta':fruta ,
+  'leite':leite ,
+  'love':love ,
+  'fondue':fondue ,
+  'natturale':natturale,
+  'unicornio':unicornio ,
+  'astros':astros,
+  'acai':acai,
+  'trufa':trufa,
+  'limaoSiciliano':limaoSiciliano,
+  'zeroPicole':zeroPicole,
+  'poteCopao':poteCopao,
+  'snack':snack,
+  'alpha':alpha,
+  'poteSundae':poteSundae, 
+  'paletas':paletas,
+  'cone':cone,
+  'belgaBrulee':belgaBrulee,
+  'brownieCenoura':brownieCenoura, 
+  'acaiGranola':acaiGranola,
+  'bombom':bombom,
+  'poteDuo1eMeio':poteDuo1eMeio,
+  'pote2l':pote2l,
+  'specialle':specialle,
+  'napolitanoZero':napolitanoZero,
+  'poteAcai2l':poteAcai2l,
+  'acaiZero':acaiZero
+}
