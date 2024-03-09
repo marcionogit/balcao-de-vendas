@@ -26,13 +26,13 @@ let btnAtacado = document.querySelector('#btn-atacado');
 const finalizadores = document.querySelector('.finalizador');
 
 // finalizadorDinheiro = adicionaremos um evento caso esse item seja selecionado, e também pegaremos o valor que estará sendo digitado pelo usuário.
-const finalizadorDinheiro = document.querySelector('#dinheiro');
+const finalizadorDinheiro = document.querySelector('#finalizadorDinheiro');
 
 // finalizadorDebito = adicionaremos um evento caso esse item seja selecionado, e também pegaremos o valor que estará sendo digitado pelo usuário.
-const finalizadorDebito = document.querySelector('#debito');
+const finalizadorDebito = document.querySelector('#finalizadorDebito');
 
 // finalizadorCredito = adicionaremos um evento caso esse item seja selecionado, e também pegaremos o valor que estará sendo digitado pelo usuário.
-const finalizadorCredito = document.querySelector('#credito');
+const finalizadorCredito = document.querySelector('#finalizadorcredito');
 
 // btnConfirmar = quando todos os itens forem registrados, o usuário clicará neste botão para aparecer os finalizadores: DINHEIRO, DEBITO OU CRÉDITO.
 const btnConfirmar = document.querySelector('#btn-confirmar');
