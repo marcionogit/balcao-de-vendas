@@ -1,24 +1,18 @@
 @import url(../style/cores.css);
-
+@import url(../style/finalizadores.css);
+@import url(../style/botoes.css);
+@import url(../style/mostrar.css);
+@import url(../style/valores.css);
 
 
 *{
     padding: 0;
     margin: 0;
-    
 }
 
 body{
     background-color: bisque;
     padding: 20px; 
-}
-
-.qtd-preco{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    max-width: 1000px;
 }
 
 #qtd{
@@ -37,27 +31,6 @@ body{
     font-size: 24px;
 }
 
-.valores{
-    background-color: #fff;
-    display: inline;;
-    padding: 30px 80px;
-    width: 140px;
-    margin-left: 16px;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 24px;
-}
-
-.valores p{
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: rgba(151, 150, 150, 0.473);
-    text-align: center;
-    padding-bottom: 4px;
-}
-
 
 .picole-flex{
     display: flex;
@@ -65,155 +38,23 @@ body{
     gap: 10px;
 }
 
-.btn-escolha{
-    display: inline-block;
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100px;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.158);
-}
 
-.btn-escolha:hover{
-    color: #fff ;
-    opacity: 80%;
-    border: 1px solid black;
-}
-
-.btn-acoes{
-    padding: 16px 32px;
-}
-
-.btn-limpar-atacado{
-    grid-column: 2;
-    margin-top: 20px;
-}
-
-.btn-grupo{
-    margin-top: 20px;
-    display: inline-block;
-}
-
-
-.grid-mostrar{
+.grid-produtos{
     display: grid;
     grid-template-columns: auto 320px;
     gap: 16px;
     place-content: center;
 }
 
-
-#mostrar-item{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
-    background-color: #fff;
-    height: 394px;
-    border-radius: 4px;
-    padding: 6px;
-    overflow-y: auto;
-}
-
-#mostrar li{
-    cursor: pointer;
-    border-top: 1px solid rgba(0, 0, 0, 0.089);
-    padding: 10px 4px;
-    border-radius: 4px;
-}
-
-#mostrar li:hover{
-    background-color: rgba(0, 0, 0, 0.027);
-}
-
-.cabecalho{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: start;
-    gap: 0px;
-    font-weight: bold;
-    padding: 8px;
-    border-bottom: 1px solid black;
-}
-
-
-.finalizadores{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    list-style: none;
-}
-
-.finalizadores li{
-    display: grid;
-    text-align: center;
-}
-
-.input-finalizador input{
-    padding: 30px 0px;
-    margin-top: 8px;
-}
-.finalizador input{
-    text-align: center;
-}
-
-
-.finalizador{ 
-    border: 1px solid gray;
-    background-color: #fff;
-    height: 200px;
-    max-width: 800px;
-    padding: 20px 20px;
-    border-radius: 4px;
-    position: absolute;
-    top: 30vh;
-    left: 25vw;
-    display: none;
-    opacity: 0;
-}
-
-.mostrar-vendas-salvas{
-    background-color: #fff;
-    height: 200px;
-    max-width: 800px;
-    padding: 20px 20px;
-    border-radius: 4px;
-    position: absolute;
-    top: 30vh;
-    left: 25vw;
-    display: none;
-    opacity: 0;
-}
-
 .ativo{
     display: grid;
     opacity: 1;
     transform: translateY(30px);
-    transition: 0.2s;
-}
-
-
-#limpar-fechamento{
-    background-color: red;
-    color: #fff;
-}
-
-.botoes-fechamento-venda{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.mostrar-vendas-salvas span{
-    font-weight: bold;
-    
+    transition: 0.1s;
 }
 
 @media(max-width:900px) {
     .finalizador{
         left: 15vw;
     }
-
-
 }

@@ -1,0 +1,41 @@
+.btn-escolha{
+  display: inline-block;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.158);
+}
+
+.btn-escolha:hover{
+  color: #fff ;
+  opacity: 80%;
+  border: 1px solid black;
+}
+
+.btn-acoes{
+  padding: 16px 32px;
+}
+
+.btn-limpar-atacado{
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+.btn-grupo{
+  margin-top: 20px;
+  display: inline-block;
+}
+
+#limpar-fechamento{
+  background-color: red;
+  color: #fff;
+}
+
+.botoes-fechamento-venda{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}

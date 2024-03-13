@@ -45,9 +45,6 @@ function mostrarVendasSalvas(){
       document.querySelector('#vendas-salvas').disabled = true;
     }
     } 
-
-  
-    
   }
   
   function limparFechamento(){

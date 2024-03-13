@@ -38,21 +38,18 @@ btnClicado.forEach((item)=>{
 
 // calculoAtualizado() = essa função atualizará em tempo real o valor total da compra e o retornará no campo #preco.
 function calculoAtualizado(){
-  let somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-      return acumulador + elemento;
-  });
-  let somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
-      return acumulador + elemento;
-  });
-  let descontoCompra = somaSorvetes - somaSorvetesAtacado;
-  if(somaSorvetes < 40){
-    preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+  let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
+  let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
+
+  let descontoCompra = somaSorvetesVarejo - somaSorvetesAtacado;
+  if(somaSorvetesVarejo < 40){
+    preco.innerHTML = `R$ ${somaSorvetesVarejo.toFixed(2)}`
     desconto.innerHTML = `R$ 0.00`
 
     btnAtacado.addEventListener('click', ()=>{
-      somaSorvetes = somaSorvetesAtacado
+      somaSorvetesVarejo = somaSorvetesAtacado
       
-      preco.innerHTML = `R$ ${somaSorvetes.toFixed(2)}`
+      preco.innerHTML = `R$ ${somaSorvetesVarejo.toFixed(2)}`
       desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`
 
     })

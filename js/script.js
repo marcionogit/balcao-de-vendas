@@ -43,6 +43,16 @@ const mostrarTroco = document.querySelector('#mostrarTroco');
 const botaoExcluir = document.querySelector('#excluir-item');
 
 
+function somaTotalProdutos(arraEscolhida){
+  let somaSorvetes = arraEscolhida.reduce((acumulador, elemento) => {
+    return acumulador + elemento;
+  }, 0);
+  return somaSorvetes;
+}
+
+
+
+// console.log("Total geral: " + (somaSorvetesVarejo + somaSorvetesAtacado));
 
 // mostrarLista() = essa função mostrará quais itens estão sendo selecionados no campo #mostrar.
 
@@ -60,67 +70,50 @@ const botaoExcluir = document.querySelector('#excluir-item');
 
 btnAtacado.addEventListener('click', ()=>{
     if(lista.length > 0){
-            somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-            return acumulador + elemento;
-        });
-        
-        let somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
-            return acumulador + elemento;
-        });
-        if(somaSorvetes < 40){
-            limparCampoQtd()
-        limparCampoMostrar();
-        calculoAtualizado()
-        lista.forEach((item, index)=>{        
-            
-            let multAtacado = item.qtd * item.valorAtacado
-            let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
-            mostrarHTML.innerHTML += formatado;
-
-        })
-        qtdDesconto.innerHTML = `DE:${somaSorvetes.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
+    let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
+        if(somaSorvetesAtacado < 40){
+            limparCampoQtd();
+            limparCampoMostrar();
+            calculoAtualizado();
+            lista.forEach((item, index)=>{        
+                let multAtacado = item.qtd * item.valorAtacado
+                let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
+                mostrarHTML.innerHTML += formatado;
+            })
+        qtdDesconto.innerHTML = `DE:${somaSorvetesAtacado.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
         } 
     } else{
         console.log('nenhum item selecionado')
-    }
-    
+    }  
 })
 
 function mostrarLista(){
     limparCampoQtd()
     limparCampoMostrar();
     calculoAtualizado()
-    somaSorvetes = precoAtualizado.reduce((acumulador, elemento) => {
-        return acumulador + elemento;
-    });
 
-    let somaSorvetesAtacado = precoAtualizadoAtacado.reduce((acumulador, elemento) => {
-        return acumulador + elemento;
-    });
+    let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
+    let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
+
     lista.forEach((item, index)=>{        
-        
         qtdDesconto.innerHTML = ''
         let mult = item.qtd * item.valor
         let multAtacado = item.qtd * item.valorAtacado
-        if(somaSorvetes < 40){
-
+        
+        if(somaSorvetesVarejo < 40){
             let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao}
             ${item.valor.toFixed(2)} x ${item.qtd} und. <strong>R$ ${mult.toFixed(2)}</strong></li>` 
-            mostrarHTML.innerHTML += formatado; 
-
-            
+            mostrarHTML.innerHTML += formatado;    
         } else{
             let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
             mostrarHTML.innerHTML += formatado; 
 
-            qtdDesconto.innerHTML = `DE:${somaSorvetes.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
+            qtdDesconto.innerHTML = `DE:${somaSorvetesVarejo.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
         }
         let indexExcluir = document.querySelectorAll('.index-excluir')
         indexExcluir.forEach((item)=>{
 
             item.addEventListener('click', ()=>{
-         
-
                 if(item.style.background === "lightgrey"){
                     item.style.background = "white" 
                     
