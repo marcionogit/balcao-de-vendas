@@ -111,10 +111,8 @@ btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = +valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito;
     console.log(valorFinalizador)
     if(+valorFinalizador === +somaSorvetesVarejo){
-        salvarLocalStorage.push(`VALOR: R$${somaSorvetesVarejo.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);
-
-        
-    salvandoLocalStorage();
+        salvarLocalStorage.push(`VALOR: R$${somaSorvetesVarejo.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);    
+        salvandoLocalStorage();
     } else{
         console.log('confirme o finalizador!')
         console.log(valorFinalizador)

@@ -20,7 +20,8 @@
   position: absolute;
   top: 30vh;
   left: 25vw;
-  opacity: 0;
+  display: none;
+  
   transition: 0.4s;
 }
 
@@ -37,6 +38,4 @@
   .finalizador{
       left: 15vw;
   }
-
-
 }
