@@ -9,19 +9,19 @@ function salvandoLocalStorage(){
   precoAtualizado= [];
   desativarModal()
   preco.innerHTML = `R$ 0.00`
-  window.location.reload()
   limparCampoMostrar()
   limparCampoQtd()
-
+  
   valorAPagar = 0
-
+  
   if(localStorage.meuArray){
     arr = JSON.parse(localStorage.getItem('meuArray'))
   }
-
+  
   arr.push(salvarLocalStorage)
-  salvarLocalStorage = []
   localStorage.meuArray = JSON.stringify(arr);
+  window.location.reload()
+  salvarLocalStorage = []
 }
 
 function mostrarVendasSalvas(){

@@ -111,12 +111,25 @@ btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = +valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito;
     console.log(valorFinalizador)
     if(+valorFinalizador === +somaSorvetesVarejo){
-        salvarLocalStorage.push(`VALOR: R$${somaSorvetesVarejo.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);    
+        // salvarLocalStorage.push(`VALOR: R$${somaSorvetesVarejo.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);  
+        let salvarPagamento = {
+            dinheiro: +valoresPagamento.dinheiro,
+            debito: +valoresPagamento.debito,
+            credito: +valoresPagamento.credito,
+            itens: lista
+        }
+        salvarLocalStorage.push(salvarPagamento);   
         salvandoLocalStorage();
     } else{
         console.log('confirme o finalizador!')
         console.log(valorFinalizador)
         console.log(somaSorvetesAtacado)
+    }
+    let salvarPagamento = {
+        dinheiro: +'',
+        debito: +'',
+        credito: +'',
+        itens: lista
     }
   })
 }
