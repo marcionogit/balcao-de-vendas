@@ -96,6 +96,7 @@ const mapaProdutos = {
   'acaiZero':acaiZero,
   'fritos':fritos,
   'kibe':kibe,
+  'bolinhoBacalhau':bolinhoBacalhau,
   'assados':assados,
   'tortinhas':tortinhas,
   'paoQueijo1kg':paoQueijo1kg,

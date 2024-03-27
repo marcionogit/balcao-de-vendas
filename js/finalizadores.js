@@ -104,7 +104,7 @@ function ativarModal(){
 
     
     // Adicionando a class="ativo" no modal transformando seu display: none; => grid; ao CSS.
-    finalizadores.classList.add('ativo');
+    finalizadores.classList.add('ativo', 'animacao');
     
     if(somaSorvetesVarejo < 40){
         somaSorvetesVarejo = somaSorvetesVarejo
