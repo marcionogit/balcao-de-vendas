@@ -102,14 +102,20 @@ function ativarModal(){
     let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
     let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
 
-
-  // Adicionando a class="ativo" no modal transformando seu display: none; => grid; ao CSS.
+    
+    // Adicionando a class="ativo" no modal transformando seu display: none; => grid; ao CSS.
     finalizadores.classList.add('ativo');
-  
+    
+    if(somaSorvetesVarejo < 40){
+        somaSorvetesVarejo = somaSorvetesVarejo
+    } else{
+        somaSorvetesVarejo = somaSorvetesAtacado
+    }
   
 btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = +valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito;
-    console.log(valorFinalizador)
+    console.log('Valor do finalizador:'+valorFinalizador)
+    console.log('Valor da soma'+somaSorvetesVarejo)
     if(+valorFinalizador === +somaSorvetesVarejo){
         // salvarLocalStorage.push(`VALOR: R$${somaSorvetesVarejo.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);  
         let salvarPagamento = {

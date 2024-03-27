@@ -50,10 +50,20 @@ const acaiZero = new Item('AÇAI 1L ZERO', 37.90, 36.90, 0, 28);
 // Salgados
 const fritos = new Item('FRITOS 400g', 18.90, 17.90, 0, 29);
 const kibe = new Item('KIBE 400g', 22.90, 21.90, 0, 30);
-const assados = new Item('ASSADOS 400g', 36.90, 35.90, 0, 31);
-const tortinhas = new Item('TORTINHAS C/4', 28.90, 27.50, 0, 32);
-const paoQueijo1kg = new Item('PÃO DE QUEIJO 1KG', 25.90, 23.40, 0, 33);
-const paoQueijo400g = new Item('PÃO DE QUEIJO 400G', 12.00, 10.90, 0, 34);
+const bolinhoBacalhau = new Item('BOLINHO BACALHAU 400g', 35.90, 34.90, 0, 31);
+const assados = new Item('ASSADOS 400g', 36.90, 35.90, 0, 32);
+const tortinhas = new Item('TORTINHAS C/4', 28.90, 27.50, 0, 33);
+const paoQueijo1kg = new Item('PÃO DE QUEIJO 1KG', 25.90, 23.50, 0, 34);
+const paoQueijo400g = new Item('PÃO DE QUEIJO 400G', 12.00, 10.90, 0, 35);
+const chipa1kg = new Item('CHIPA 1KG', 29.00, 27.50, 0, 36);
+
+// Complementos
+const tubin = new Item('TUB-IN', 3.00, 3.00, 0, 37);
+const cestinha = new Item('CESTINHA C/5', 6.00, 6.00, 0, 38);
+const cascao = new Item('CASCÃO C/10', 8.00, 8.00, 0, 39);
+const cobertura = new Item('COBERTURA', 9.00, 9.00, 0, 40);
+const casquinhaC20 = new Item('CASQUINHA C/20', 10.00, 10.00, 0, 41);
+
 
 const mapaProdutos = {
   'retro':retro,
@@ -89,5 +99,11 @@ const mapaProdutos = {
   'assados':assados,
   'tortinhas':tortinhas,
   'paoQueijo1kg':paoQueijo1kg,
-  'paoQueijo400g':paoQueijo400g
+  'paoQueijo400g':paoQueijo400g,
+  'chipa1kg':chipa1kg,
+  'tubin':tubin,
+  'cestinha':cestinha,
+  'cascao':cascao,
+  'cobertura':cobertura,
+  'casquinhaC20':casquinhaC20,
 }

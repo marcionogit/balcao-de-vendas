@@ -3,101 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema caixa</title>
+    <title>Salgados</title>
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    <div class="valores-grid">
-        <input type="number" id="qtd" placeholder="QUANTIDADE" autofocus>
-        <div class="valores">
-            <p>TOTAL:</p>
-            <span id="preco">R$ 0.00</span>
-        </div>
-        <div class="valores">
-            <p>DESCONTO:</p>
-            <span id="desconto">R$ 0.00</span>
-        </div>
-        <div class="valores">
-            <p>TROCO:</p>
-            <span id="mostrarTroco">R$ 0.00</span>
-        </div>
-    </div>
-    <div class="grid-produtos">
-        <div class="picole-flex" id="mostrarSalgados">
-          <a href="./index.html" class="voltar"  name="voltar">
-            Voltar
-          </a>
-            <div id="fritos" name="fritos" class="btn-escolha">Fritos</div>
-            <div id="kibe" name="kibe" class="btn-escolha">Kibe</div>
-            <div id="assados" name="assados" class="btn-escolha">Assados</div>
-            <div id="tortinhas" name="tortinhas" class="btn-escolha">Tortinhas</div>
-            <div id="paoQueijo1kg" name="paoQueijo1kg" class="btn-escolha">Pão de Queijo 1Kg</div>
-            <div id="paoQueijo400g" name="paoQueijo400g" class="btn-escolha">Pão de Queijo 400g</div>
-        </div>
-        <div>
-            <div id="mostrar-item">
-                <span class="mostrar-cabecalho">
-                    <span>DESCRIÇÃO</span>
-                    <span>VALOR</span>
-                </span>
-                <ul name="mostrar" id="mostrar"></ul>
-            </div>
-            <div class="btn-limpar-atacado">
-                <button id="excluir-item" class="btn-acoes">Excluir</button>
-                <button id="btn-atacado" class="btn-acoes">Atacado</button>
-            </div>
-        </div>
-    </div>
-    <div class="btn-grupo">
-        <button id="deletar" onclick="limparCampoBotao()" class="btn-acoes">Deletar</button>
-        <button id="limpar-fechamento" onclick="limparFechamento()" class="btn-acoes">limpar Fechamento</button>
-        <button id="vendas-salvas" onclick="mostrarVendasSalvas()" class="btn-acoes">VENDAS SALVAS</button>
-        <button id="finalizar" onclick="finalizar()" class="btn-acoes">Finalizar</button>
-    </div>
-    <div id="qtd-desconto"></div>
 
-    
-    <div class="finalizador">
-        <ul class="finalizadores">
-            <li class="input-finalizador">
-                <label>DINHEIRO</label>
-                <input type="number" id="finalizadorDinheiro" name="finalizadorDinheiro" placeholder="0,00" value=""  class="input-finalizador-focado">
-
-            </li>
-            <li class="input-finalizador" >
-                <label>DÉBITO</label>
-                <input type="number" id="finalizadorDebito" name="finalizadorDebito" placeholder="0,00" value="" class="input-finalizador-focado">
-
-            </li>
-            <li class="input-finalizador" >
-                <label>CRÉDITO</label>
-                <input type="number" id="finalizadorCredito" name="finalizadorCredito" placeholder="0,00" value="" class="input-finalizador-focado">
-            </li>
-        </ul>
-
-        <div class="botoes-fechamento-venda">
-
-            <button id="btn-confirmar">
-                confirmar
-            </button>
-
-            <button id="btn-cancelar" onclick="desativarModal()">
-                cancelar
-            </button>
-        </div>
-    </div>
-    <div class="mostrar-vendas-salvas">
-        <button id="cancelarVendasSalvas">
-            cancelar
-        </button>
-    </div>
-
-
+<div class="picole-flex" id="mostrarSalgados">
+    <a href="./index.html" class="link" onclick="handleClick(event)">
+    Voltar
+    </a>
+    <div id="fritos" name="fritos" class="btn-escolha salgados">Fritos</div>
+    <div id="kibe" name="kibe" class="btn-escolha salgados">Kibe</div>
+    <div id="bolinhoBacalhau" name="bolinhoBacalhau" class="btn-escolha salgados">Bolinho Bacalhau</div>
+    <div id="assados" name="assados" class="btn-escolha salgados">Assados</div>
+    <div id="tortinhas" name="tortinhas" class="btn-escolha salgados">Tortinhas</div>
+    <div id="paoQueijo1kg" name="paoQueijo1kg" class="btn-escolha salgados">Pão de Queijo 1Kg</div>
+    <div id="paoQueijo400g" name="paoQueijo400g" class="btn-escolha salgados">Pão de Queijo 400g</div>
+    <div id="chipa1kg" name="chipa1kg" class="btn-escolha salgados">Chipa 1Kg</div>
+</div>
+       
     <script src="./js/script.js"></script>
     <script src="./js/produtos.js"></script>
     <script src="./js/produtoCalculo.js"></script>
     <script src="./js/finalizadores.js"></script>
     <script src="./js/localStorage.js"></script>
-    <script src="./js/salgado.js"></script>
+    <script src="./js/mudarPagina.js"></script>
 </body>
 </html>
