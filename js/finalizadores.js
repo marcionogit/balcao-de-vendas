@@ -5,99 +5,107 @@ function finalizar(){
     if(precoAtualizado.length != ''){
         ativarModal();
     } 
-    
     // Se a array precoAtualizado estiver vazia dará uma mensagem com um aviso.
     else{
         console.log('Selecione algum produto')
-    }}
-
-    let valoresPagamento = {
-        dinheiro: +'',
-        debito: +'',
-        credito: +''
     }
-    
-// ativarModal() = sempre que o #btn-confirmar for clicado essa função será acionada
+}
 
+// valoresPagamento = {} => É um objeto criado para receber o valor de cada finalizador quando a tecla enter dor precionada.
+let valoresPagamento = {
+    dinheiro: +'',
+    debito: +'',
+    credito: +''
+}
+    
+// mapaFinalizador = {} => Objeto feito para mapear para qual operador o valor resgatado pelo finalizador terá de ser adicionado. Ele pega a String recebida e a transforma no objeto.
 const mapaFinalizador = {
     'finalizadorDinheiro':finalizadorDinheiro,
     'finalizadorDebito':finalizadorDebito,
     'finalizadorCredito':finalizadorCredito,
 }
+
+// finalizadorFocado =  NodeList com todos os inputs dos finalizadores
 const finalizadorFocado = document.querySelectorAll(".input-finalizador-focado");
 
+// Aqui pegamos a NodeList acima e fazemos um loop por todos os seus itens
 finalizadorFocado.forEach((item)=>{
-    
+
+    // Para cada item do loop deixamos um escutador para acionar uma função anônima.
     item.addEventListener('focus', ()=>{
-            let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
-            let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
+
+        // somaSorvetesVarejo = recebe o valor da função somaTotalProdutos que fará a soma da array precoAtualizado.
+        // somaSorvetesAtacado = recebe o valor da função somaTotalProdutos que fará a soma da array precoAtualizadoAtacado.
+        // opcaoFinalizador = pega o atributo id do item focado para utilizarmos no mapaFinalizador.
+        let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
+        let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);   
+        let opcaoFinalizador = item.getAttribute('id');
         
-            let opcaoFinalizador = item.getAttribute('id');
-            
-            if(somaSorvetesVarejo < 40){
-                somaSorvetesVarejo = somaSorvetesVarejo
-            } else{
-                somaSorvetesVarejo = somaSorvetesAtacado
-            }
-            
-            let valorAPagar = somaSorvetesVarejo - (+valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito);
-            if(somaSorvetesVarejo === valorAPagar){
-                item.value = somaSorvetesVarejo;
-            }   else{
-                item.value = valorAPagar;
-            }
-            item.select();
-                
-                    
-            item.addEventListener('keyup', (event)=>{
-                if (event.key === 'Enter') {
-                    event.preventDefault();
-                    if(opcaoFinalizador === 'finalizadorDinheiro'){
-                        valoresPagamento.dinheiro = item.value
-                        item.value = valoresPagamento.dinheiro
-                    } else if(opcaoFinalizador === 'finalizadorDebito'){
-                        valoresPagamento.debito = item.value
-                        item.value = valoresPagamento.debito
-                    } else{
-                        valoresPagamento.credito = item.value
-                        item.value = valoresPagamento.credito
-                    }                 
-                    item.blur();
-                                
-                } 
-            })
-                
+        // Aqui verificamos se o valor da compra ainda é inferior que R$40,00. Se sim ao invés de utilizarmos os preços padrões de varejo passamos a utilizar os de atacado.
+        if(somaSorvetesVarejo < 40){
+            somaSorvetesVarejo = somaSorvetesVarejo
+        } else{
+            somaSorvetesVarejo = somaSorvetesAtacado
+        }
         
-            item.addEventListener('focusout', ()=>{
+        // valorAPagar = utilizamos para que saibamos quanto da compra ainda falta a ser pago.
+        let valorAPagar = somaSorvetesVarejo - (+valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito);
+        if(somaSorvetesVarejo === valorAPagar){
+            item.value = somaSorvetesVarejo;
+        }   else{
+            item.value = valorAPagar;
+        }
+        item.select();
+            
+                
+        item.addEventListener('keyup', (event)=>{
+            if (event.key === 'Enter') {
+                event.preventDefault();
                 if(opcaoFinalizador === 'finalizadorDinheiro'){
-                    if(valoresPagamento.dinheiro === item.value){
-                        item.value = valoresPagamento.dinheiro;
-                    }  else{
-                        // mostrarTroco.innerHTML = `R$ 0.00`;
-                        item.value = ''
-                    }
+                    valoresPagamento.dinheiro = item.value
+                    item.value = valoresPagamento.dinheiro
                 } else if(opcaoFinalizador === 'finalizadorDebito'){
-                    if(valoresPagamento.debito === item.value){
-                        item.value = valoresPagamento.debito;
-                    }  else{
-                        // mostrarTroco.innerHTML = `R$ 0.00`;
-                        item.value = ''
-                    }
-                } else {
-                    if(valoresPagamento.credito === item.value){
-                        item.value = valoresPagamento.credito;
-                    }  else{
-                        // mostrarTroco.innerHTML = `R$ 0.00`;
-                        item.value = ''
-                    }
-                }
-    
-            })
-            
+                    valoresPagamento.debito = item.value
+                    item.value = valoresPagamento.debito
+                } else{
+                    valoresPagamento.credito = item.value
+                    item.value = valoresPagamento.credito
+                }                 
+                item.blur();                     
+            } 
         })
+            
+    
+        item.addEventListener('focusout', ()=>{
+            if(opcaoFinalizador === 'finalizadorDinheiro'){
+                if(valoresPagamento.dinheiro === item.value){
+                    item.value = valoresPagamento.dinheiro;
+                }  else{
+                    // mostrarTroco.innerHTML = `R$ 0.00`;
+                    item.value = ''
+                }
+            } else if(opcaoFinalizador === 'finalizadorDebito'){
+                if(valoresPagamento.debito === item.value){
+                    item.value = valoresPagamento.debito;
+                }  else{
+                    // mostrarTroco.innerHTML = `R$ 0.00`;
+                    item.value = ''
+                }
+            } else {
+                if(valoresPagamento.credito === item.value){
+                    item.value = valoresPagamento.credito;
+                }  else{
+                    // mostrarTroco.innerHTML = `R$ 0.00`;
+                    item.value = ''
+                }
+            }
+
+        })
+        
+    })
 })
 
-
+// ativarModal() = sempre que o #btn-confirmar for clicado essa função será acionada
 function ativarModal(){
     let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
     let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
@@ -117,7 +125,7 @@ btnConfirmar.addEventListener('click', ()=>{
     console.log('Valor do finalizador:'+valorFinalizador)
     console.log('Valor da soma'+somaSorvetesVarejo)
     if(+valorFinalizador === +somaSorvetesVarejo){
-        // salvarLocalStorage.push(`VALOR: R$${somaSorvetesVarejo.toFixed(2)} | DINHEIRO:R$${valoresPagamento.dinheiro} |DEBITO:R$${valoresPagamento.debito} | CREDITO:R$${valoresPagamento.credito}`);  
+
         let salvarPagamento = {
             dinheiro: +valoresPagamento.dinheiro,
             debito: +valoresPagamento.debito,
