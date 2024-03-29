@@ -54,6 +54,10 @@ body{
     transition: 0.1s;
 }
 
+.virarAtacado{
+    
+}
+
 @media(max-width:900px) {
     .finalizador{
         left: 15vw;

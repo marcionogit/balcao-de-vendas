@@ -33,6 +33,7 @@ finalizadorFocado.forEach((item)=>{
 
     // Para cada item do loop deixamos um escutador para acionar uma função anônima.
     item.addEventListener('focus', ()=>{
+    
 
         // somaSorvetesVarejo = recebe o valor da função somaTotalProdutos que fará a soma da array precoAtualizado.
         // somaSorvetesAtacado = recebe o valor da função somaTotalProdutos que fará a soma da array precoAtualizadoAtacado.
@@ -40,12 +41,26 @@ finalizadorFocado.forEach((item)=>{
         let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
         let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);   
         let opcaoFinalizador = item.getAttribute('id');
+    
         
         // Aqui verificamos se o valor da compra ainda é inferior que R$40,00. Se sim ao invés de utilizarmos os preços padrões de varejo passamos a utilizar os de atacado.
         if(somaSorvetesVarejo < 40){
             somaSorvetesVarejo = somaSorvetesVarejo
         } else{
             somaSorvetesVarejo = somaSorvetesAtacado
+        }
+
+        let atributo = btnAtacado.getAttribute('class')
+        let classAtacado = 'virarAtacado'
+        
+
+
+        if(atributo.includes(classAtacado)){
+                somaSorvetesVarejo = somaSorvetesAtacado
+                console.log('tem')
+        } else{
+            somaSorvetesVarejo = somaSorvetesVarejo
+            console.log('não tem')
         }
         
         // valorAPagar = utilizamos para que saibamos quanto da compra ainda falta a ser pago.
