@@ -110,22 +110,46 @@ function mostrarLista(){
             
         })
     }
+    
+function desativarBotaoAtacado(){
+    btnAtacado.classList.remove('virarAtacado');
+    mostrarLista()
+}
 
 function ativarBotaoAtacado(){
-    if(lista.length > 0){
+    let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
+    let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
+    let descontoCompra = somaSorvetesVarejo - somaSorvetesAtacado;
+    
+    preco.innerHTML = `R$ ${somaSorvetesVarejo.toFixed(2)}`
+    
+    
+    let classAtacado = 'virarAtacado';
+    let atributo = btnAtacado.getAttribute('class');
+    if(atributo.includes(classAtacado)){
+        desativarBotaoAtacado()
+        somaSorvetesVarejo = somaSorvetesVarejo
+        desconto.innerHTML = `R$ 0.00`
+    } 
+    else if(lista.length > 0){
         btnAtacado.classList.toggle('virarAtacado');
-        let somaSorvetes = somaTotalProdutos(precoAtualizado);
-        let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
-        if(somaSorvetesAtacado < 40){
+        if(somaSorvetesVarejo < 40){
+            
+            somaSorvetesVarejo = somaSorvetesAtacado
+            
             limparCampoQtd();
             limparCampoMostrar();
             calculoAtualizado();
+            
             lista.forEach((item, index)=>{        
                 let multAtacado = item.qtd * item.valorAtacado
-                let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$${multAtacado.toFixed(2)}</strong></li>` 
+                let formatado = `<li value="${index}" class="index-excluir" > ${item.descricao} ${item.valorAtacado.toFixed(2)} x ${item.qtd} und.  <strong>R$ ${multAtacado.toFixed(2)}</strong></li>` 
                 mostrarHTML.innerHTML += formatado;
             })
-        qtdDesconto.innerHTML = `DE:${somaSorvetes.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
+            preco.innerHTML = `R$ ${somaSorvetesAtacado.toFixed(2)}`
+            desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`
+
+            qtdDesconto.innerHTML = `DE:${somaSorvetesVarejo.toFixed(2)} POR:R$${somaSorvetesAtacado.toFixed(2)}`
         } 
     } else{
         console.log('nenhum item selecionado')

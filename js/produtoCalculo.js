@@ -32,6 +32,7 @@ btnClicado.forEach((item)=>{
         precoAtualizado.push(Number(mult))
         precoAtualizadoAtacado.push(Number(multAtacado))
         mostrarLista()
+        desativarBotaoAtacado()
   })
 })
 
@@ -41,18 +42,18 @@ function calculoAtualizado(){
   let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
   let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
 
-  let descontoCompra = somaSorvetesVarejo - somaSorvetesAtacado;
+    
   if(somaSorvetesVarejo < 40){
     preco.innerHTML = `R$ ${somaSorvetesVarejo.toFixed(2)}`
     desconto.innerHTML = `R$ 0.00`
 
-    btnAtacado.addEventListener('click', ()=>{
-      somaSorvetesVarejo = somaSorvetesAtacado
+    // btnAtacado.addEventListener('click', ()=>{
+    //   // somaSorvetesVarejo = somaSorvetesAtacado
       
-      preco.innerHTML = `R$ ${somaSorvetesVarejo.toFixed(2)}`
-      desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`
+    //   // preco.innerHTML = `R$ ${somaSorvetesVarejo.toFixed(2)}`
 
-    })
+    // })
+
   } else{
       preco.innerHTML = `R$ ${somaSorvetesAtacado.toFixed(2)}`
       desconto.innerHTML = `R$ ${descontoCompra.toFixed(2)}`

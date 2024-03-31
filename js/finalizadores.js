@@ -44,24 +44,19 @@ finalizadorFocado.forEach((item)=>{
     
         
         // Aqui verificamos se o valor da compra ainda é inferior que R$40,00. Se sim ao invés de utilizarmos os preços padrões de varejo passamos a utilizar os de atacado.
-        if(somaSorvetesVarejo < 40){
-            somaSorvetesVarejo = somaSorvetesVarejo
+        let atributo = btnAtacado.getAttribute('class');
+        let classAtacado = 'virarAtacado';
+        if(somaSorvetesVarejo >= 40 || atributo.includes(classAtacado)){
+            somaSorvetesVarejo = somaSorvetesAtacado;
         } else{
-            somaSorvetesVarejo = somaSorvetesAtacado
+            somaSorvetesVarejo = somaSorvetesVarejo;
         }
 
-        let atributo = btnAtacado.getAttribute('class')
-        let classAtacado = 'virarAtacado'
-        
-
-
-        if(atributo.includes(classAtacado)){
-                somaSorvetesVarejo = somaSorvetesAtacado
-                console.log('tem')
-        } else{
-            somaSorvetesVarejo = somaSorvetesVarejo
-            console.log('não tem')
-        }
+        // if()){
+        //     somaSorvetesVarejo = somaSorvetesAtacado;
+        // } else{
+        //     somaSorvetesVarejo = somaSorvetesVarejo; 
+        // }
         
         // valorAPagar = utilizamos para que saibamos quanto da compra ainda falta a ser pago.
         let valorAPagar = somaSorvetesVarejo - (+valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito);
@@ -138,8 +133,8 @@ function ativarModal(){
 btnConfirmar.addEventListener('click', ()=>{
     let valorFinalizador = +valoresPagamento.dinheiro + +valoresPagamento.debito + +valoresPagamento.credito;
     console.log('Valor do finalizador:'+valorFinalizador)
-    console.log('Valor da soma'+somaSorvetesVarejo)
-    if(+valorFinalizador === +somaSorvetesVarejo){
+    console.log('Valor da soma:'+somaSorvetesVarejo)
+    if(+valorFinalizador === +somaSorvetesVarejo || +valorFinalizador === +somaSorvetesAtacado){
 
         let salvarPagamento = {
             dinheiro: +valoresPagamento.dinheiro,
