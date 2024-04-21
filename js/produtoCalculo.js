@@ -41,6 +41,8 @@ btnClicado.forEach((item)=>{
 function calculoAtualizado(){
   let somaSorvetesVarejo = somaTotalProdutos(precoAtualizado);
   let somaSorvetesAtacado = somaTotalProdutos(precoAtualizadoAtacado);
+  let descontoCompra = somaSorvetesVarejo - somaSorvetesAtacado;
+
 
     
   if(somaSorvetesVarejo < 40){
