@@ -2,6 +2,8 @@
 
 Este é um software desenvolvido para registrar as vendas de uma sorveteria de forma rápida e eficiente. Ele foi criado utilizando JavaScript, HTML e CSS.
 
+![img-projeto-figma](https://github.com/marcionogit/sitema/blob/img/balcão.png)
+
 ## Motivação
 
 A necessidade de um sistema ágil e confiável para registrar as vendas foi o principal impulsionador deste projeto. O sistema anterior frequentemente apresentava problemas de estabilidade, deixando a equipe na mão em momentos críticos. Portanto, decidimos criar uma solução interna que atendesse às nossas necessidades específicas.
